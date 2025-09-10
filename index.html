@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TailwindCSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis cumque eos sequi nesciunt aliquam eligendi, fugit, nobis accusantium repellat blanditiis maxime tenetur veniam odio ducimus. Voluptates voluptas a laboriosam nemo?</p>
+<body class="m-4">
+    <div class=" grid gap-4 " >
+        <div class="bg-gray-300 h-36"></div>
+        <div class="bg-red-500 h-38"></div>
+        <div class="grid lg:gap-4 lg:grid-cols-3">
+            <div class="bg-gray-300 h-12 lg:h-36"></div>
+            <div class="bg-gray-300 h-12 lg:h-36"></div>
+            <div class="bg-gray-300 h-12 lg:h-36"></div>
+    
+        </div>
+    </div>
+    
 </body>
 </html>

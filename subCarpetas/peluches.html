@@ -7,80 +7,58 @@
     <link rel="icon" href="../imagenes/LogoTienda.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <header class="bg-gray-900 text-white-100 ">
-  <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-    <a class="block text-pink-600 " href="../index.html">
-      <span class="sr-only">Inicio</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14">
-        <path fill="currentColor" fill-rule="evenodd" d="M5.351 1.07C5.768.653 6.348.469 7 .469s1.232.184 1.649.601c.416.417.601.997.601 1.649s-.185 1.231-.6 1.648c-.417.417-.997.602-1.649.602s-1.232-.185-1.649-.602c-.416-.416-.601-.996-.601-1.648s.185-1.232.601-1.649m1.65 5.988c-.507-.48-1.153-.983-1.846-1.246c-.39-.148-.806-.224-1.224-.169c-.421.056-.829.244-1.201.598c-.628.596-.786 1.345-.647 2.108c.137.752.562 1.522 1.104 2.216a9.7 9.7 0 0 0 1.888 1.82c.661.48 1.338.83 1.885.92a.3.3 0 0 0 .08 0c.547-.09 1.225-.44 1.885-.92a9.7 9.7 0 0 0 1.889-1.82c.542-.694.966-1.464 1.103-2.216c.14-.763-.018-1.512-.646-2.108c-.373-.354-.78-.542-1.202-.598c-.417-.055-.833.02-1.224.17c-.692.262-1.339.765-1.845 1.245" clip-rule="evenodd"/>
-      </svg>
-    </a>
+<body class="relative">
+  <header class="bg-gray-900 text-white-100">
+    <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+      <a class="block text-pink-600" href="index.html">
+        <span class="sr-only">Inicio</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14">
+          <path fill="currentColor" fill-rule="evenodd" d="M5.351 1.07C5.768.653 6.348.469 7 .469s1.232.184 1.649.601c.416.417.601.997.601 1.649s-.185 1.231-.6 1.648c-.417.417-.997.602-1.649.602s-1.232-.185-1.649-.602c-.416-.416-.601-.996-.601-1.648s.185-1.232.601-1.649m1.65 5.988c-.507-.48-1.153-.983-1.846-1.246c-.39-.148-.806-.224-1.224-.169c-.421.056-.829.244-1.201.598c-.628.596-.786 1.345-.647 2.108c.137.752.562 1.522 1.104 2.216a9.7 9.7 0 0 0 1.888 1.82c.661.48 1.338.83 1.885.92a.3.3 0 0 0 .08 0c.547-.09 1.225-.44 1.885-.92a9.7 9.7 0 0 0 1.889-1.82c.542-.694.966-1.464 1.103-2.216c.14-.763-.018-1.512-.646-2.108c-.373-.354-.78-.542-1.202-.598c-.417-.055-.833.02-1.224.17c-.692.262-1.339.765-1.845 1.245" clip-rule="evenodd"/>
+        </svg>
+      </a>
 
-    <div class="flex flex-1 items-center justify-end md:justify-between">
-      <nav aria-label="Global" class="hidden md:block">
-        <ul class="flex items-center gap-5 text-sm">
-          <li>
-            <a class="text-white transition hover:underline"
-              href="nosotros.html">
-              Nosotros </a>
-          </li>
+      <div class="flex flex-1 items-center justify-end md:justify-between">
+        <nav aria-label="Global" class="hidden md:block">
+          <ul class="flex gap-5 text-sm justify-center">
+            <li><a class="text-white transition hover:underline" href="../subCarpetas/nosotros.html">Nosotros</a></li>
+            <li><a class="text-white transition hover:underline" href="../subCarpetas/arreglos.html">Arreglos</a></li>
+            <li><a class="text-white transition hover:underline" href="../subCarpetas/juguetes.html">Juguetes</a></li>
+            <li><a class="text-white transition hover:underline" href="../subCarpetas/peluches.html">Peluches</a></li>
+            <li><a class="text-white transition hover:underline" href="../subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
+          </ul>
+        </nav>
 
-          <li>
-            <a class="text-white transition hover:underline"
-              href="arreglos.html">
-              Arreglos</a>
-          </li>
+        <div class="flex items-center gap-4">
+          <div class="sm:flex sm:gap-4">
+            <a class="rounded-md bg-pink-500 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600 block"
+              href="../subCarpetas/formularioInicioSesion.html">Iniciar Sesión</a>
+            <a class="hidden rounded-md bg-pink-100 px-5 py-2.5 text-sm font-medium text-pink-500 transition hover:text-white hover:bg-pink-500 sm:block"
+              href="../subCarpetas/formularioRegistro.html">Registro</a>
+          </div>
 
-          <li>
-            <a class="text-white transition hover:underline"
-              href="juguetes.html">
-              Juguetes</a>
-          </li>
-
-          <li>
-            <a class="text-white transition hover:underline"
-              href="peluches.html">
-              Peluches</a>
-          </li>
-
-          <li>
-            <a class="text-white transition hover:underline"
-              href="ropaBebes.html">
-              Ropa de Bebé</a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="flex items-center gap-4">
-        <div class="sm:flex sm:gap-4">
-          <a class=" rounded-md bg-pink-500 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600 block"
-            href="formularioInicioSesion.html">
-            Iniciar Sesión</a>
-
-          <a class="hidden rounded-md bg-pink-100 px-5 py-2.5 text-sm font-medium text-pink-500 transition hover:text-teal-600/75 sm:block "
-            href="formularioRegistro.html">
-            Registro</a>
+          <button id="menu-button"
+            class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden ">
+            <span class="sr-only">Toggle menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-
-        <button
-          class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-        >
-          <span class="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          ><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
       </div>
     </div>
-  </div>
-</header>
+
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-gray-900 text-white shadow-lg md:hidden">
+      <ul class="flex flex-col gap-4 p-6 text-md text-center ">
+        <li><a class="block hover:underline" href="../subCarpetas/nosotros.html">Nosotros</a></li>
+        <li><a class="block hover:underline" href="../subCarpetas/arreglos.html">Arreglos</a></li>
+        <li><a class="block hover:underline" href="../subCarpetas/juguetes.html">Juguetes</a></li>
+        <li><a class="block hover:underline" href="../subCarpetas/peluches.html">Peluches</a></li>
+        <li><a class="block hover:underline" href="../subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
+      </ul>
+    </div>
+  </header>
 
 <section>
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
@@ -295,7 +273,15 @@
       </li>
     </ul>
   </div>
-</footer>
+</footer> 
+<script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 
 </body>
 </html>

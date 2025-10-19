@@ -5,46 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Novedades "MisJhon"</title>
   <link rel="icon" href="imagenes/LogoTienda.png" type="image/png">
-
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class'
-    }
-  </script>
-
+  <script>tailwind.config = {darkMode: 'class'} </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="relative bg-white dark:bg-gray-900 transition-colors duration-300">
 
-  <header class="bg-gray-900 text-white-100 sticky top-0 z-50">
+  <header class="bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50">
     <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
       <a class="block" href="index.html">
         <span class="sr-only">Inicio</span>
-        <img src="imagenes/Logo.png" alt="" width="75" height="35">
+        <img src="imagenes/Logo-oscuro.png" alt="Logo MisJhon Claro" class="block dark:hidden" width="105" height="40">
+        <img src="imagenes/Logo-claro.png" alt="Logo MisJhon Oscuro" class="hidden dark:block" width="105" height="40">
       </a>
 
-      <div class="flex flex-1 items-center justify-end md:justify-between">
+      <div class="flex flex-1 items-center justify-end lg:justify-between">
         <nav aria-label="Global" class="hidden lg:block">
-          <ul class="flex gap-5 text-sm justify-center">
-            <li><a class="text-white transition hover:underline" href="subCarpetas/nosotros.html">Nosotros</a></li>
-            <li><a class="text-white transition hover:underline" href="subCarpetas/arreglos.html">Arreglos</a></li>
-            <li><a class="text-white transition hover:underline" href="subCarpetas/juguetes.html">Juguetes</a></li>
-            <li><a class="text-white transition hover:underline" href="subCarpetas/peluches.html">Peluches</a></li>
-            <li><a class="text-white transition hover:underline" href="subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
+          <ul class="flex gap-5 text-sm justify-center text-md font-semibold">
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="subCarpetas/nosotros.html">Nosotros</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="subCarpetas/arreglos.html">Arreglos</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="subCarpetas/juguetes.html">Juguetes</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="subCarpetas/peluches.html">Peluches</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
           </ul>
         </nav>
 
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-2 sm:gap-4">
+          <div class="flex items-center gap-4">
 
             <button id="theme-toggle" class="inline-flex
                     p-2.5 md:space-x-2
-                    bg-indigo-600 hover:bg-indigo-700 dark:bg-yellow-500 dark:hover:bg-yellow-600
-                    text-white dark:text-gray-900 rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out
-                    focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-yellow-400 dark:focus:ring-offset-gray-900">
+                    bg-indigo-700 hover:bg-indigo-800 dark:bg-yellow-400 dark:hover:bg-yellow-500
+                    text-white dark:text-white rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out
+                    focus:outline-none ">
 
               <span id="moon-icon" class="hidden dark:inline-flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -60,9 +53,9 @@
               <span id="theme-text" class="hidden md:inline">Cambiar Tema</span>
             </button>
 
-            <a class="rounded-full bg-pink-500 p-2.5 text-sm font-medium text-white transition hover:bg-pink-600" href="subCarpetas/formularioInicioSesion.html">Iniciar Sesión</a>
-            <a class="hidden rounded-full bg-pink-100 p-2.5 text-sm font-medium text-pink-500 transition hover:text-white hover:bg-pink-500 lg:block" href="subCarpetas/formularioRegistro.html">Registro</a>
-            <button id="menu-button" class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 lg:hidden ">
+            <a class="rounded-full bg-pink-500 p-2.5 px-3 text-sm font-medium text-white transition hover:bg-pink-600" href="subCarpetas/formularioInicioSesion.html">Iniciar Sesión</a>
+            <a class="hidden rounded-full p-2.5 px-3 border-2 border-pink-500 text-sm font-medium text-pink-500 transition hover:bg-pink-100 dark:hover:bg-gray-800 lg:block" href="subCarpetas/formularioRegistro.html">Registro</a>
+            <button id="menu-button" class="block rounded-sm bg-white text-black dark:bg-gray-900 dark:text-white p-2.5 hover:text-gray-600 lg:hidden">
               <span class="sr-only">Menu Hamburguesa</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -70,17 +63,17 @@
             </button>
           </div>
 
-        </div>
+        
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-gray-900 text-white shadow-lg lg:hidden">
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white text-gray-900 dark:bg-gray-900 dark:text-white shadow-lg lg:hidden">
       <ul class="flex flex-col gap-4 p-6 text-md text-center ">
-        <li><a class="block hover:underline" href="subCarpetas/nosotros.html">Nosotros</a></li>
-        <li><a class="block hover:underline" href="subCarpetas/arreglos.html">Arreglos</a></li>
-        <li><a class="block hover:underline" href="subCarpetas/juguetes.html">Juguetes</a></li>
-        <li><a class="block hover:underline" href="subCarpetas/peluches.html">Peluches</a></li>
-        <li><a class="block hover:underline" href="subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
+        <li><a class="block" href="subCarpetas/nosotros.html">Nosotros</a></li>
+        <li><a class="block" href="subCarpetas/arreglos.html">Arreglos</a></li>
+        <li><a class="block" href="subCarpetas/juguetes.html">Juguetes</a></li>
+        <li><a class="block" href="subCarpetas/peluches.html">Peluches</a></li>
+        <li><a class="block" href="subCarpetas/ropaBebes.html">Ropa de Bebé</a></li>
       </ul>
     </div>
   </header>
@@ -152,10 +145,9 @@
 
   <footer class="bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <div class="flex justify-center text-pink-600 ">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14">
-          <path fill="currentColor" fill-rule="evenodd" d="M5.351 1.07C5.768.653 6.348.469 7 .469s1.232.184 1.649.601c.416.417.601.997.601 1.649s-.185 1.231-.6 1.648c-.417.417-.997.602-1.649.602s-1.232-.185-1.649-.602c-.416-.416-.601-.996-.601-1.648s.185-1.232.601-1.649m1.65 5.988c-.507-.48-1.153-.983-1.846-1.246c-.39-.148-.806-.224-1.224-.169c-.421.056-.829.244-1.201.598c-.628.596-.786 1.345-.647 2.108c.137.752.562 1.522 1.104 2.216a9.7 9.7 0 0 0 1.888 1.82c.661.48 1.338.83 1.885.92a.3.3 0 0 0 .08 0c.547-.09 1.225-.44 1.885-.92a9.7 9.7 0 0 0 1.889-1.82c.542-.694.966-1.464 1.103-2.216c.14-.763-.018-1.512-.646-2.108c-.373-.354-.78-.542-1.202-.598c-.417-.055-.833.02-1.224.17c-.692.262-1.339.765-1.845 1.245" clip-rule="evenodd" />
-        </svg>
+      <div class="flex justify-center">
+        <img src="imagenes/Logo-oscuro.png" alt="Logo MisJhon Claro" class="block dark:hidden" width="105" height="40">
+        <img src="imagenes/Logo-claro.png" alt="Logo MisJhon Oscuro" class="hidden dark:block" width="105" height="40">
       </div>
 
       <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-400 ">
@@ -221,10 +213,10 @@
 
   <script>
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const htmlElement = document.documentElement; // La etiqueta <html>
+  const htmlElement = document.documentElement; 
   const themeText = document.getElementById('theme-text');
 
-  // Función para actualizar el texto del botón
+
   function updateThemeUI(isDark) {
     if (isDark) {
       themeText.textContent = 'Modo Claro';
@@ -233,7 +225,6 @@
     }
   }
 
-  // 1. Al cargar la página, revisa la preferencia guardada o la del sistema
   const savedTheme = localStorage.getItem('theme');
   const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -245,14 +236,12 @@
     updateThemeUI(false);
   }
 
-  // 2. Cambiar entre temas al hacer clic
   themeToggleBtn.addEventListener('click', () => {
     const isDark = htmlElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeUI(isDark);
   });
 </script>
-
 
 </body>
 </html>

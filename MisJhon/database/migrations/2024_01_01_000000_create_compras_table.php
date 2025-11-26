@@ -19,9 +19,6 @@ return new class extends Migration {
             $table->string('direccion');
             $table->string('region');
             $table->string('metodo_pago');
-            $table->string('tarjeta_num')->nullable();
-            $table->string('tarjeta_fecha')->nullable();
-            $table->string('tarjeta_cvc')->nullable();
             $table->timestamps();
         });
     }

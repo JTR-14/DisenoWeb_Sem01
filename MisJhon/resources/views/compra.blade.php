@@ -21,10 +21,10 @@
     <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
       <a class="block" href="{{ route('home') }}">
         <span class="sr-only">Inicio</span>
-        <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro" class="block dark:hidden"
-          width="105" height="40">
-        <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro" class="hidden dark:block"
-          width="105" height="40">
+        <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro"
+          class="block dark:hidden" width="105" height="40">
+        <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro"
+          class="hidden dark:block" width="105" height="40">
       </a>
 
       <div class="flex flex-1 items-center justify-end lg:justify-between">
@@ -38,8 +38,8 @@
                 href="{{ route('juguetes') }}">Juguetes</a></li>
             <li><a class="text-gray-900 dark:text-white transition hover:underline"
                 href="{{ route('peluches') }}">Peluches</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline"
-                href="{{ route('ropaBebes') }}">Ropa de Bebé</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('ropaBebes') }}">Ropa
+                de Bebé</a></li>
           </ul>
         </nav>
 
@@ -89,7 +89,7 @@
     <div id="mobile-menu"
       class="hidden absolute top-16 left-0 w-full bg-white text-gray-900 dark:bg-gray-900 dark:text-white shadow-lg lg:hidden">
       <ul class="flex flex-col gap-4 p-6 text-md text-center ">
-        
+
         <li><a class="block" href="{{ route('arreglos') }}">Arreglos</a></li>
         <li><a class="block" href="{{ route('juguetes') }}">Juguetes</a></li>
         <li><a class="block" href="{{ route('peluches') }}">Peluches</a></li>
@@ -105,8 +105,9 @@
           Formulario de Compra por Delivery
         </h2>
 
-        <form action="{{ route('compra') }}" method="POST" class="mt-6 mb-0 space-y-4 rounded-xl p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
-        @csrf
+        <form action="{{ route('compra') }}" method="POST"
+          class="mt-6 mb-0 space-y-4 rounded-xl p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
+          @csrf
           <p class="text-center text-lg font-medium text-gray-900 dark:text-white">Completa tus datos de envío</p>
           @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -118,7 +119,7 @@
               </ul>
             </div>
           @endif
-          
+
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label for="nombre" class="sr-only">Nombre</label>
@@ -157,7 +158,12 @@
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Teléfono (ej. 987654321)" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-400 dark:text-gray-200" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-400 dark:text-gray-200"
+                  viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384" />
+                </svg>
               </span>
             </div>
           </div>
@@ -197,13 +203,12 @@
           </div>
 
           <div>
-            <fieldset >
+            <fieldset>
               <legend class="text-lg font-medium text-gray-900 dark:text-white mb-2 ">Método de Pago</legend>
               <div class="space-y-2">
                 <div class="flex items-center">
                   <input id="pago_tarjeta" name="metodo_pago" type="radio" value="tarjeta"
-                    class="h-4 w-4 focus:ring-pink-500"
-                    checked>
+                    class="h-4 w-4 focus:ring-pink-500" checked>
                   <label for="pago_tarjeta" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Tarjeta de Crédito/Débito
                   </label>
@@ -215,7 +220,7 @@
                     Yape / Plin
                   </label>
                 </div>
-                
+
               </div>
             </fieldset>
           </div>
@@ -264,10 +269,10 @@
     class="bg-white dark:bg-gray-900 shadow-[0_-1px_5px_rgba(0,0,0,0.1)] dark:shadow-[0_-1px_5px_rgb(255_255_255_/_0.2)]">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8 ">
       <div class="flex justify-center">
-        <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro" class="block dark:hidden"
-          width="105" height="40">
-        <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro" class="hidden dark:block"
-          width="105" height="40">
+        <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro"
+          class="block dark:hidden" width="105" height="40">
+        <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro"
+          class="hidden dark:block" width="105" height="40">
       </div>
 
       <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300 ">
@@ -328,17 +333,19 @@
       </ul>
     </div>
   </footer>
-  <a href="{{ route('compra') }}" 
+  <a href="{{ route('compra') }}"
     class="fixed bottom-20 right-5 bg-pink-500 text-white p-4 rounded-full shadow-lg hover:bg-pink-600 transition-all duration-300 flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2"/>
-      </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
+    </svg>
   </a>
-  <a href="{{ route('compra') }}" 
+  <a href="{{ route('compra') }}"
     class="fixed bottom-20 right-5 bg-pink-500 text-white p-4 rounded-full shadow-lg hover:bg-pink-600 transition-all duration-300 flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2"/>
-      </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
+    </svg>
   </a>
 
   <a href="https://wa.me/51973392986" target="_blank"
@@ -393,37 +400,37 @@
   </script>
 
   <script>
-    
+
     document.addEventListener('DOMContentLoaded', () => {
 
-      
+
       const radiosMetodoPago = document.querySelectorAll('input[name="metodo_pago"]');
       const infoTarjeta = document.getElementById('info_tarjeta');
       const infoYape = document.getElementById('info_yape');
-      
 
-      
+
+
       const divsInfo = [infoTarjeta, infoYape];
 
-      
+
       function actualizarVistaPago() {
-        
+
         divsInfo.forEach(div => {
           div.classList.add('hidden');
         });
 
-       
+
         const valorSeleccionado = document.querySelector('input[name="metodo_pago"]:checked').value;
 
-        
+
         if (valorSeleccionado === 'tarjeta') {
           infoTarjeta.classList.remove('hidden');
         } else if (valorSeleccionado === 'yape_plin') {
           infoYape.classList.remove('hidden');
-        } 
+        }
       }
 
-      
+
       radiosMetodoPago.forEach(radio => {
         radio.addEventListener('change', actualizarVistaPago);
       });
@@ -435,4 +442,3 @@
 </body>
 
 </html>
-

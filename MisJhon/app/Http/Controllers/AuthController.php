@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required'], 
+            'email' => ['required'],
             'password' => ['required'],
         ]);
 
@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         return back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
-        ]);
+        ])->withInput();
     }
 
     public function showRegister()
@@ -44,10 +44,10 @@ class AuthController extends Controller
             'telefono' => 'required|string|max:20',
             'direccion' => 'required|string|max:255',
             'region' => 'required|string|max:255',
-            'password' => 'required|string|min:8', 
-         ]);
+            'password' => 'required|string|min:8',
+        ]);
 
-        
+
 
         $user = User::create([
             'name' => $request->name,

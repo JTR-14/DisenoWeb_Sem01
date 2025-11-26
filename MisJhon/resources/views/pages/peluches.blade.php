@@ -15,6 +15,29 @@
     </header>
 
     <ul class="mt-8 grid gap-4 grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 md:gap-8">
+
+    @foreach($productos as $producto)
+        <li class="group block overflow-hidden rounded-t-2xl">
+          <img src="{{ asset('storage/' . $producto->imagen) }}" 
+               alt="{{ $producto->titulo }}" 
+               class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px]">
+
+          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5">
+            <h3 class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4">
+              {{ $producto->titulo }}
+            </h3>
+            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
+              <p class="text-xl">
+                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono">S/ {{ number_format($producto->precio, 2) }}</span>
+              </p>
+              <button class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600">
+                Añadir al carrito
+              </button>
+            </div>
+          </div>
+        </li>
+      @endforeach
+      
       <li class="group block overflow-hidden rounded-t-2xl shadow-lg">
         <img src="{{ asset('imagenes/i__peluches/P1.png') }}" alt="" class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
@@ -116,27 +139,7 @@
         </div>
       </li>
 
-      @foreach($productos as $producto)
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('storage/' . $producto->imagen) }}" 
-               alt="{{ $producto->titulo }}" 
-               class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px]">
-
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5">
-            <h3 class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4">
-              {{ $producto->titulo }}
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono">S/ {{ number_format($producto->precio, 2) }}</span>
-              </p>
-              <button class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600">
-                Añadir al carrito
-              </button>
-            </div>
-          </div>
-        </li>
-      @endforeach
+      
 
     </ul>
   </div>

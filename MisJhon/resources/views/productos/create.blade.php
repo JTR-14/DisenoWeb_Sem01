@@ -72,7 +72,7 @@
                 id="categoria" 
                 required
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white p-3 text-sm shadow-sm">
-          <option value="">Seleccione una categoría</option>
+          <option value="" disabled selected>Seleccione una categoría</option>
           <option value="arreglos" {{ old('categoria') == 'arreglos' ? 'selected' : '' }}>Arreglos</option>
           <option value="peluches" {{ old('categoria') == 'peluches' ? 'selected' : '' }}>Peluches</option>
           <option value="juguetes" {{ old('categoria') == 'juguetes' ? 'selected' : '' }}>Juguetes</option>

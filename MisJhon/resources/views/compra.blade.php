@@ -123,14 +123,14 @@
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label for="nombre" class="sr-only">Nombre</label>
-              <input required type="text" name="nombre" id="nombre"
+              <input required type="text" name="nombre" id="nombre" value="{{ old('nombre') }}"
                 class="w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Nombre" />
             </div>
 
             <div>
               <label for="apellido" class="sr-only">Apellido</label>
-              <input required type="text" name="apellido" id="apellido"
+              <input required type="text" name="apellido" id="apellido" value="{{ old('apellido') }}"
                 class="w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Apellido" />
             </div>
@@ -138,7 +138,7 @@
           <div>
             <label for="email" class="sr-only">Email</label>
             <div class="relative">
-              <input required type="email" name="email" id="email"
+              <input required type="email" name="email" id="email" value="{{ old('email') }}"
                 class="w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Correo Electrónico" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -154,7 +154,7 @@
           <div>
             <label for="telefono" class="sr-only">Teléfono</label>
             <div class="relative">
-              <input required type="tel" name="telefono" id="telefono"
+              <input required type="tel" name="telefono" id="telefono" value="{{ old('telefono') }}"
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Teléfono (ej. 987654321)" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -171,7 +171,7 @@
           <div>
             <label for="direccion" class="sr-only">Dirección</label>
             <div class="relative">
-              <input required type="text" name="direccion" id="direccion"
+              <input required type="text" name="direccion" id="direccion" value="{{ old('direccion') }}"
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Dirección (Calle, Av., Nro, Dpto.)" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -188,17 +188,19 @@
             <select name="region" id="region" required
               class="w-full rounded-lg dark:bg-gray-700 dark:text-white p-4 text-sm shadow-sm ">
               <option value="" disabled selected>Seleccione Distrito</option>
-              <option value="trujillo">Trujillo</option>
-              <option value="el_porvenir">El Porvenir</option>
-              <option value="florencia_de_mora">Florencia de Mora</option>
-              <option value="huanchaco">Huanchaco</option>
-              <option value="la_esperanza">La Esperanza</option>
-              <option value="laredo">Laredo</option>
-              <option value="moche">Moche</option>
-              <option value="poroto">Poroto</option>
-              <option value="salaverry">Salaverry</option>
-              <option value="simbal">Simbal</option>
-              <option value="victor_larco_herrera">Víctor Larco Herrera</optio>
+              <option value="trujillo" {{ old('region') == 'trujillo' ? 'selected' : '' }}>Trujillo</option>
+              <option value="el_porvenir" {{ old('region') == 'el_porvenir' ? 'selected' : '' }}>El Porvenir</option>
+              <option value="florencia_de_mora" {{ old('region') == 'florencia_de_mora' ? 'selected' : '' }}>Florencia de
+                Mora</option>
+              <option value="huanchaco" {{ old('region') == 'huanchaco' ? 'selected' : '' }}>Huanchaco</option>
+              <option value="la_esperanza" {{ old('region') == 'la_esperanza' ? 'selected' : '' }}>La Esperanza</option>
+              <option value="laredo" {{ old('region') == 'laredo' ? 'selected' : '' }}>Laredo</option>
+              <option value="moche" {{ old('region') == 'moche' ? 'selected' : '' }}>Moche</option>
+              <option value="poroto" {{ old('region') == 'poroto' ? 'selected' : '' }}>Poroto</option>
+              <option value="salaverry" {{ old('region') == 'salaverry' ? 'selected' : '' }}>Salaverry</option>
+              <option value="simbal" {{ old('region') == 'simbal' ? 'selected' : '' }}>Simbal</option>
+              <option value="victor_larco_herrera" {{ old('region') == 'victor_larco_herrera' ? 'selected' : '' }}>Víctor
+                Larco Herrera</option>
             </select>
           </div>
 
@@ -208,14 +210,14 @@
               <div class="space-y-2">
                 <div class="flex items-center">
                   <input id="pago_tarjeta" name="metodo_pago" type="radio" value="tarjeta"
-                    class="h-4 w-4 focus:ring-pink-500" checked>
+                    class="h-4 w-4 focus:ring-pink-500" {{ old('metodo_pago') == 'tarjeta' ? 'checked' : '' }}>
                   <label for="pago_tarjeta" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Tarjeta de Crédito/Débito
                   </label>
                 </div>
                 <div class="flex items-center">
                   <input id="pago_yape" name="metodo_pago" type="radio" value="yape_plin"
-                    class="h-4 w-4 focus:ring-pink-500">
+                    class="h-4 w-4 focus:ring-pink-500" {{ old('metodo_pago') == 'yape_plin' ? 'checked' : '' }}>
                   <label for="pago_yape" class="ml-3 block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Yape / Plin
                   </label>
@@ -229,20 +231,20 @@
             <h3 class="text-md font-semibold text-gray-900 dark:text-white">Datos de la Tarjeta</h3>
             <div>
               <label for="tarjeta_num" class="sr-only">Número de Tarjeta</label>
-              <input type="text" id="tarjeta_num"
+              <input type="text" id="tarjeta_num" name="tarjeta_num" value="{{ old('tarjeta_num') }}"
                 class="w-full rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Número de Tarjeta (xxxx xxxx xxxx xxxx)" />
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label for="tarjeta_fecha" class="sr-only">Fecha (MM/AA)</label>
-                <input type="text" id="tarjeta_fecha"
+                <input type="text" id="tarjeta_fecha" name="tarjeta_fecha" value="{{ old('tarjeta_fecha') }}"
                   class="w-full rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
                   placeholder="MM/AA" />
               </div>
               <div>
                 <label for="tarjeta_cvc" class="sr-only">CVC</label>
-                <input type="text" id="tarjeta_cvc"
+                <input type="text" id="tarjeta_cvc" name="tarjeta_cvc" value="{{ old('tarjeta_cvc') }}"
                   class="w-full rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
                   placeholder="CVC" />
               </div>
@@ -333,7 +335,7 @@
       </ul>
     </div>
   </footer>
-  
+
   <a href="{{ route('productos.index') }}"
     class="fixed bottom-[143px] right-5 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition-all duration-300 flex items-center justify-center z-50"
     title="Panel de Administración">

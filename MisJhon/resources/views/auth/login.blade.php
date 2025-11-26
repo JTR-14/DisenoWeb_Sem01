@@ -124,7 +124,7 @@
             <label for="email" class="sr-only">Email</label>
 
             <div class="relative">
-              <input required type="email" name="email" id="email"
+              <input required type="email" name="email" id="email" value="{{ old('email') }}"
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Email" required />
 
@@ -144,7 +144,7 @@
             <div class="relative">
               <input required type="password" name="password" id="password"
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Contraseña" required/>
+                placeholder="Contraseña" required />
 
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200" fill="none"
@@ -298,4 +298,3 @@
 </body>
 
 </html>
-

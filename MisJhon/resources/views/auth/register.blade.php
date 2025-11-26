@@ -131,7 +131,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <input type="text" required name="name"
+              <input type="text" required name="name" value="{{ old('name') }}"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Nombre completo">
             </div>
@@ -145,7 +145,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
               </svg>
-              <input type="email" required name="email"
+              <input type="email" required name="email" value="{{ old('email') }}"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Correo electrónico">
             </div>
@@ -159,7 +159,7 @@
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384" />
               </svg>
-              <input type="tel" required name="telefono"
+              <input type="tel" required name="telefono" value="{{ old('telefono') }}"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Número de teléfono">
             </div>
@@ -173,7 +173,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z" />
               </svg>
-              <input type="text" required name="direccion"
+              <input type="text" required name="direccion" value="{{ old('direccion') }}"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Dirección completa">
             </div>
@@ -185,17 +185,17 @@
             <select name="region" id="region" required
               class="w-full rounded-lg dark:bg-gray-700 dark:text-white p-4 text-sm shadow-sm ">
               <option value="" disabled selected>Seleccione Distrito</option>
-              <option value="trujillo">Trujillo</option>
-              <option value="el_porvenir">El Porvenir</option>
-              <option value="florencia_de_mora">Florencia de Mora</option>
-              <option value="huanchaco">Huanchaco</option>
-              <option value="la_esperanza">La Esperanza</option>
-              <option value="laredo">Laredo</option>
-              <option value="moche">Moche</option>
-              <option value="poroto">Poroto</option>
-              <option value="salaverry">Salaverry</option>
-              <option value="simbal">Simbal</option>
-              <option value="victor_larco_herrera">Víctor Larco Herrera</optio>
+              <option value="trujillo" {{ old('region') == 'trujillo' ? 'selected' : '' }}>Trujillo</option>
+              <option value="el_porvenir" {{ old('region') == 'el_porvenir' ? 'selected' : '' }}>El Porvenir</option>
+              <option value="florencia_de_mora" {{ old('region') == 'florencia_de_mora' ? 'selected' : '' }}>Florencia de Mora</option>
+              <option value="huanchaco" {{ old('region') == 'huanchaco' ? 'selected' : '' }}>Huanchaco</option>
+              <option value="la_esperanza" {{ old('region') == 'la_esperanza' ? 'selected' : '' }}>La Esperanza</option>
+              <option value="laredo" {{ old('region') == 'laredo' ? 'selected' : '' }}>Laredo</option>
+              <option value="moche" {{ old('region') == 'moche' ? 'selected' : '' }}>Moche</option>
+              <option value="poroto" {{ old('region') == 'poroto' ? 'selected' : '' }}>Poroto</option>
+              <option value="salaverry" {{ old('region') == 'salaverry' ? 'selected' : '' }}>Salaverry</option>
+              <option value="simbal" {{ old('region') == 'simbal' ? 'selected' : '' }}>Simbal</option>
+              <option value="victor_larco_herrera" {{ old('region') == 'victor_larco_herrera' ? 'selected' : '' }}>Víctor Larco Herrera</option>
             </select>
           </div>
 
@@ -207,7 +207,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <input type="password" id="password" name="password" required
+              <input type="password" id="password" name="password" required 
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Contraseña">
             </div>
@@ -223,7 +223,7 @@
                   d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
 
-              <input type="password" id="password2" required
+              <input type="password" id="password2" required name="password2"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Confirmar contraseña">
             </div>

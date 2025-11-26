@@ -109,11 +109,22 @@
           @csrf
           <p class="text-center text-lg font-medium text-gray-900 dark:text-white">Ingresa tus datos</p>
 
+          @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong class="font-bold">¡Error!</strong>
+              <ul class="mt-2 list-inside">
+                @foreach ($errors->all() as $error)
+                  <li class="ml-2">{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+          
           <div>
-            <label for="nombre" class="sr-only">Nombre</label>
+            <label for="name" class="sr-only">Nombre</label>
 
             <div class="relative">
-              <input required type="text" name="nombre" id="nombre"
+              <input required type="text" name="name" id="name"
                 class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Nombre" />
 
@@ -143,8 +154,10 @@
                 </svg>
               </span>
             </div>
-            <input type="submit" value="Ingresar"
+            <button type="submit"
               class=" mt-4 w-full bg-pink-500 rounded-lg px-5 p-3 hover:bg-pink-600  font-medium text-white dark:placeholder-gray-200 placeholder-gray-500">
+              Ingresar
+            </button>
           </div>
         </form>
         <p class="text-center mt-4 text-gray-500 dark:text-gray-400">

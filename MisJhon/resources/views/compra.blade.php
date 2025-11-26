@@ -108,7 +108,17 @@
         <form action="{{ route('compra') }}" method="POST" class="mt-6 mb-0 space-y-4 rounded-xl p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
         @csrf
           <p class="text-center text-lg font-medium text-gray-900 dark:text-white">Completa tus datos de envío</p>
-
+          @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong class="font-bold">¡Error!</strong>
+              <ul class="mt-2 list-inside">
+                @foreach ($errors->all() as $error)
+                  <li class="ml-2">{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+          
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label for="nombre" class="sr-only">Nombre</label>

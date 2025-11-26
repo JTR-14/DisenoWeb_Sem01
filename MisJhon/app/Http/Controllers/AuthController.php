@@ -17,17 +17,17 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'nombre' => ['required'], 
+            'name' => ['required'], 
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['name' => $request->nombre, 'password' => $request->password])) {
+        if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
 
         return back()->withErrors([
-            'nombre' => 'Las credenciales no coinciden con nuestros registros.',
+            'name' => 'Las credenciales no coinciden con nuestros registros.',
         ]);
     }
 
@@ -39,18 +39,18 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'telefono' => 'required|string|max:20',
             'direccion' => 'required|string|max:255',
             'region' => 'required|string|max:255',
-            'password' => 'required|string|min:8', // Removed confirmed because form uses JS validation and field name is password2
-        ]);
+            'password' => 'required|string|min:8', 
+         ]);
 
-        // Manual check for password confirmation if needed, but let's trust the JS or add 'password' => 'confirmed' and rename field in view to password_confirmation
+        
 
         $user = User::create([
-            'name' => $request->nombre,
+            'name' => $request->name,
             'email' => $request->email,
             'telefono' => $request->telefono,
             'direccion' => $request->direccion,

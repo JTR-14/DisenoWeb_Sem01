@@ -112,6 +112,17 @@
             Ingresa tus datos personales
           </p>
 
+          @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong class="font-bold">¡Error!</strong>
+              <ul class="mt-2 list-inside">
+                @foreach ($errors->all() as $error)
+                  <li class="ml-2">{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
+
           <div>
             <label class="sr-only">Nombre Completo</label>
             <div class="relative flex items-center">
@@ -120,7 +131,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <input type="text" required name="nombre"
+              <input type="text" required name="name"
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Nombre completo">
             </div>
@@ -196,10 +207,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
-              <input type="password" id="password" required
+              <input type="password" id="password" name="password" required
                 class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
                 placeholder="Contraseña">
             </div>
+            <p class="text-red-500 text-sm text-center ">La contraseña debe tener al menos 8 caracteres</p>
           </div>
 
           <div>
@@ -217,9 +229,10 @@
             </div>
             <p id="msgPass" class="text-sm mt-1 font-medium"></p>
           </div>
-          <input type="submit" value="Crear cuenta"
+          <button type="submit"
             class="mt-4 w-full bg-pink-500 rounded-lg px-5 p-3 hover:bg-pink-600 active:bg-pink-600 font-medium text-white cursor-pointer">
-
+            Crear cuenta
+          </button>
         </form>
       </div>
     </div>
@@ -377,4 +390,3 @@
 </body>
 
 </html>
-

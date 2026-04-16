@@ -15,7 +15,7 @@
 <body class="bg-gray-50 dark:bg-gray-900">
   
   <div class="container mx-auto px-4 py-8 max-w-2xl">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Crear Nuevo Producto</h1>
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Crear Nuevo Producto</h1>
 
     @if ($errors->any())
       <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">

@@ -36,7 +36,7 @@
                   <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono">S/
                     {{ number_format($producto->precio, 2) }}</span>
                 </p>
-                <button
+                <button onclick="comprar()"
                   class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600">
                   Añadir al carrito
                 </button>
@@ -59,7 +59,7 @@
               <p class="text-xl">
                 <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono ">S/ 38.00</span>
               </p>
-              <button
+              <button 
                 class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
                 data-translate="btn_add_cart">
                 Añadir al carrito </button>

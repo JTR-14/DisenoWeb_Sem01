@@ -29,7 +29,7 @@
 
             <div class="relative">
               <input required type="email" name="email" id="email" value="{{ old('email') }}"
-                class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
+                class="w-full rounded-lg border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Email" data-translate-placeholder="placeholder_email" />
 
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -47,7 +47,7 @@
 
             <div class="relative">
               <input required type="password" name="password" id="password"
-                class="w-full rounded-lg border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
+                class="w-full rounded-lg border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Contraseña" data-translate-placeholder="placeholder_password" />
 
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">

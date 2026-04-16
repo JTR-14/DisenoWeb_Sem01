@@ -178,6 +178,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // === Buscador de Productos ===
+    const searchInputs = [
+        document.getElementById('product-search-input'),
+        document.getElementById('mobile-product-search')
+    ];
+
+    searchInputs.forEach(searchInput => {
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                // Sincronizar el texto entre ambos inputs si existen
+                searchInputs.forEach(input => {
+                    if (input && input !== this) input.value = this.value;
+                });
+
+                // Buscar items de productos (tanto estáticos en ul.grid como cualquier contenedor con clases de grid/lista)
+                const productItems = document.querySelectorAll('ul.grid > li, div.grid > div');
+                
+                productItems.forEach(item => {
+                    // Evitamos ocultar elementos que no parecen ser productos (ej: no tienen título)
+                    const titleEl = item.querySelector('h3') || item.querySelector('.font-semibold') || item.querySelector('h2');
+                    const priceEl = Array.from(item.querySelectorAll('span, p, b')).find(el => el.textContent.includes('S/'));
+                    
+                    // Si el item tiene título y precio, lo tratamos como producto para filtrar
+                    if (titleEl && priceEl) {
+                        const title = titleEl.textContent.toLowerCase();
+                        if (title.includes(searchTerm)) {
+                            item.style.display = ''; // Mostrar
+                        } else {
+                            item.style.display = 'none'; // Ocultar
+                        }
+                    }
+                });
+            });
+        }
+    });
+
     initCartButtons();
     updateCartBadge();
     renderCartTotal();

@@ -20,166 +20,133 @@
 
 <body class="relative bg-white dark:bg-gray-900 transition-colors duration-300">
 
-  <header class="bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50">
-    <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-      <a class="block" href="{{ route('home') }}">
-        <span class="sr-only">Inicio</span>
-        <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro"
-          class="block dark:hidden" width="105" height="40">
-        <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro"
-          class="hidden dark:block" width="105" height="40">
-      </a>
+  <header class="bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50 shadow-sm border-b border-gray-100 dark:border-gray-800">
+    <div class="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
+      <!-- Logo Section -->
+      <div class="flex-shrink-0">
+        <a class="block" href="{{ route('home') }}">
+          <span class="sr-only">Inicio</span>
+          <img src="{{ asset('imagenes/i__principal/Logo-oscuro.png') }}" alt="Logo MisJhon Claro"
+            class="block dark:hidden" width="120" height="auto">
+          <img src="{{ asset('imagenes/i__principal/Logo-claro.png') }}" alt="Logo MisJhon Oscuro"
+            class="hidden dark:block" width="120" height="auto">
+        </a>
+      </div>
 
-      <div class="flex flex-1 items-center justify-end lg:justify-between">
-        <nav class="hidden lg:block">
-          <ul class="flex gap-5 text-sm justify-center text-md font-semibold">
-            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('arreglos') }}"
-                data-translate="nav_arreglos">Arreglos</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('juguetes') }}"
-                data-translate="nav_juguetes">Juguetes</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('peluches') }}"
-                data-translate="nav_peluches">Peluches</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('ropaBebes') }}"
-                data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
-          </ul>
-        </nav>
+      <!-- Navigation Section (Hidden on small desktop) -->
+      <nav class="hidden xl:block">
+        <ul class="flex gap-6 text-[15px] font-semibold text-gray-700 dark:text-gray-200">
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
+        </ul>
+      </nav>
 
-        <div class="flex items-center gap-4">
-
-          <button id="theme-toggle" class="inline-flex p-2.5 md:space-x-2
-            dark:bg-indigo-700 dark:hover:bg-indigo-800 bg-yellow-400 hover:bg-yellow-500
-            text-black dark:text-white rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out
-            focus:outline-none ">
-
-            <span id="moon-icon" class="hidden dark:inline-flex">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9 0 008.354-5.646z"></path>
-              </svg>
-            </span>
-            <span id="sun-icon" class="inline-flex dark:hidden">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.757l.707-.707M3.975 19.025l.707-.707M18.364 5.636l.707-.707M5.636 18.364l.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                </path>
-              </svg>
-            </span>
-
-            <span id="theme-text" class="hidden md:inline" data-translate="theme_toggle">Cambiar Tema</span>
-          </button>
-
-
-          <div class="relative">
-            <button id="language-toggle" class="inline-flex items-center gap-2 p-2.5 
-              bg-gray-100 dark:bg-gray-800 
-              hover:bg-gray-200 dark:hover:bg-gray-700
-              rounded-full transition-all duration-300 
-              focus:outline-none shadow-md">
-
-              <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="Español"
-                class="w-5 h-5 rounded-sm">
-              <span id="current-lang"
-                class="hidden md:inline text-sm font-medium text-gray-900 dark:text-white">ES</span>
-
-              <svg class="w-4 h-4 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-
-            <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 
-              bg-white dark:bg-gray-800 
-              rounded-lg shadow-lg 
-              border border-gray-200 dark:border-gray-700 
-              overflow-hidden z-50">
-
-              <button onclick="changeLanguage('es')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/es.svg') }}" alt="Español" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">Español</span>
-              </button>
-
-              <button onclick="changeLanguage('en')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="English" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">English</span>
-              </button>
-
-              <button onclick="changeLanguage('pt')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/pt.svg') }}" alt="Português" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">Português</span>
-              </button>
-
-              <button onclick="changeLanguage('fr')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/fr.svg') }}" alt="Français" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">Français</span>
-              </button>
-
-              <button onclick="changeLanguage('it')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/it.svg') }}" alt="Italiano" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">Italiano</span>
-              </button>
-
-              <button onclick="changeLanguage('de')" class="w-full flex items-center gap-3 px-4 py-2.5 
-                hover:bg-gray-100 dark:hover:bg-gray-700 
-                transition-colors">
-                <img src="{{ asset('imagenes/banderas/de.svg') }}" alt="Deutsch" class="w-5 h-5 rounded-sm">
-                <span class="text-sm text-gray-900 dark:text-white">Deutsch</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <!-- Shopping Cart -->
-            <a href="{{ route('compra') }}" class="relative p-2 text-gray-700 dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400 transition-colors" title="Ver Carrito">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
-              </svg>
-              <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
-            </a>
-
-            <!-- Admin Panel (Solo si es necesario) -->
-            <a href="{{ route('productos.index') }}" class="p-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors" title="Administración">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" />
-              </svg>
-            </a>
-          </div>
-
-          <a class="rounded-full bg-pink-600 p-2.5 px-3 text-sm font-medium text-white transition hover:bg-pink-700"
-            href="{{ route('login') }}" data-translate="nav_login">Ingresar</a>
-          <a class="hidden rounded-full p-2.5 px-3 text-sm font-medium text-white bg-pink-600 transition hover:bg-pink-700 lg:block"
-            href="{{ route('register') }}" data-translate="nav_register">Registro</a>
-
-          <button id="menu-button"
-            class="block rounded-sm bg-white text-black dark:bg-gray-900 dark:text-white p-2.5 hover:text-gray-600 lg:hidden">
-            <span class="sr-only">Menu Hamburguesa</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+      <!-- Search Bar (Flexible width) -->
+      <div class="hidden lg:block flex-1 max-w-xs px-2">
+        <div class="relative">
+          <input type="text" id="product-search-input" placeholder="Buscar..." 
+            class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm transition-all" data-translate-placeholder="search_placeholder">
+          <svg class="w-5 h-5 absolute left-3 top-[27px] transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
         </div>
+      </div>
+
+      <!-- Utility Icons Section -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2.5 rounded-full bg-yellow-400 hover:bg-yellow-500 dark:bg-indigo-700 dark:hover:bg-indigo-800 text-black dark:text-white shadow-sm transition-all focus:outline-none" title="Cambiar Tema">
+          <span id="moon-icon" class="hidden dark:block">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9 0 008.354-5.646z"></path></svg>
+          </span>
+          <span id="sun-icon" class="block dark:hidden">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.757l.707-.707M3.975 19.025l.707-.707M18.364 5.636l.707-.707M5.636 18.364l.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          </span>
+        </button>
+
+        <!-- Language Toggle (Compact) -->
+        <div class="relative">
+          <button id="language-toggle" class="flex items-center p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm transition-all">
+            <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="ES" class="w-5 h-5 rounded-sm">
+            <svg class="w-4 h-4 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          
+          <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50">
+            <button onclick="changeLanguage('es')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <img src="{{ asset('imagenes/banderas/es.svg') }}" alt="ES" class="w-5 h-5 rounded-sm">
+              <span class="text-sm font-medium dark:text-white">Español</span>
+            </button>
+            <button onclick="changeLanguage('en')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="EN" class="w-5 h-5 rounded-sm">
+              <span class="text-sm font-medium dark:text-white">English</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Icons Group -->
+        <div class="flex items-center gap-1">
+          <!-- Cart -->
+          <a href="{{ route('compra') }}" class="relative p-2.5 text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors" title="Ver Carrito">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" /></svg>
+            <span id="cart-badge" class="absolute top-1 right-1 bg-pink-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-white dark:border-gray-900 hidden">0</span>
+          </a>
+
+          <!-- Admin -->
+          <a href="{{ route('productos.index') }}" class="p-2.5 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors" title="Administración">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" /></svg>
+          </a>
+        </div>
+
+        <!-- Auth Buttons (Hidden in small/mid desktop) -->
+        <div class="hidden sm:flex items-center gap-2">
+          <a class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold transition shadow-sm" href="{{ route('login') }}" data-translate="nav_login">Ingresar</a>
+          <a class="hidden xl:block px-5 py-2.5 rounded-full border-2 border-pink-600 text-pink-600 dark:text-pink-400 dark:border-pink-400 hover:bg-pink-50 text-sm font-semibold transition" href="{{ route('register') }}" data-translate="nav_register">Registro</a>
+        </div>
+
+        <!-- Mobile Menu Trigger (Hamburger) -->
+        <button id="menu-button" class="xl:hidden p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </div>
 
+    <!-- Mobile Menu Drawer -->
     <div id="mobile-menu"
-      class="hidden absolute top-16 left-0 w-full bg-white text-gray-900 dark:bg-gray-900 dark:text-white shadow-lg lg:hidden">
-      <ul class="flex flex-col gap-4 p-6 text-md text-center ">
-        <li><a class="block" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
-        <li><a class="block" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
-        <li><a class="block" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
-        <li><a class="block" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
+      class="hidden absolute top-20 left-0 w-full bg-white text-gray-900 dark:bg-gray-900 dark:text-white shadow-xl xl:hidden divide-y divide-gray-100 dark:divide-gray-800 z-50">
+      
+
+      <div class="p-4 lg:hidden">
+        <div class="relative">
+          <input type="text" id="mobile-product-search" placeholder="Buscar productos..." 
+            class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm">
+          <svg class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Links de Navegación -->
+      <ul class="flex flex-col p-4 text-md font-medium text-center space-y-2">
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
       </ul>
+
+
+      <div class="p-4 flex flex-col gap-3">
+         <a href="{{ route('productos.index') }}" class="flex items-center justify-center gap-2 py-2 text-purple-600 dark:text-purple-400 font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"/></svg>
+            Panel de Administración
+         </a>
+         <a href="{{ route('login') }}" class="block text-center rounded-full bg-pink-600 py-2.5 text-sm font-medium text-white hover:bg-pink-700" data-translate="nav_login">Ingresar</a>
+         <a href="{{ route('register') }}" class="block text-center rounded-full bg-gray-200 dark:bg-gray-700 py-2.5 text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600" data-translate="nav_register">Registro</a>
+      </div>
     </div>
   </header>
 

@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Información Juguetes</title>
-  <link rel="icon" href="{{ asset('imagenes/i__principal/LogoTienda.png') }}" type="image/png">
+  <title>Novedades "MisJhon"</title>
+  <link rel="icon" href="imagenes/i__principal/LogoTienda.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -13,6 +13,7 @@
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="relative bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -28,17 +29,16 @@
       </a>
 
       <div class="flex flex-1 items-center justify-end lg:justify-between">
-        <nav aria-label="Global" class="hidden lg:block">
+        <nav class="hidden lg:block">
           <ul class="flex gap-5 text-sm justify-center text-md font-semibold">
-
-            <li><a class="text-gray-900 dark:text-white transition hover:underline"
-                href="{{ route('arreglos') }}">Arreglos</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline"
-                href="{{ route('juguetes') }}">Juguetes</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline"
-                href="{{ route('peluches') }}">Peluches</a></li>
-            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('ropaBebes') }}">Ropa
-                de Bebé</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('arreglos') }}"
+                data-translate="nav_arreglos">Arreglos</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('juguetes') }}"
+                data-translate="nav_juguetes">Juguetes</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('peluches') }}"
+                data-translate="nav_peluches">Peluches</a></li>
+            <li><a class="text-gray-900 dark:text-white transition hover:underline" href="{{ route('ropaBebes') }}"
+                data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
           </ul>
         </nav>
 
@@ -46,7 +46,7 @@
 
           <button id="theme-toggle" class="inline-flex p-2.5 md:space-x-2
             dark:bg-indigo-700 dark:hover:bg-indigo-800 bg-yellow-400 hover:bg-yellow-500
-            text-white dark:text-white rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out
+            text-black dark:text-white rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out
             focus:outline-none ">
 
             <span id="moon-icon" class="hidden dark:inline-flex">
@@ -65,13 +65,81 @@
               </svg>
             </span>
 
-            <span id="theme-text" class="hidden md:inline">Cambiar Tema</span>
+            <span id="theme-text" class="hidden md:inline" data-translate="theme_toggle">Cambiar Tema</span>
           </button>
 
-          <a class="rounded-full bg-pink-500 p-2.5 px-3 text-sm font-medium text-white transition hover:bg-pink-600"
-            href="{{ route('login') }}">Ingresar</a>
-          <a class="hidden rounded-full p-2.5 px-3 border-2 border-pink-500 text-sm font-medium text-pink-500 transition hover:bg-pink-100 dark:hover:bg-gray-800 lg:block"
-            href="{{ route('register') }}">Registro</a>
+
+          <div class="relative">
+            <button id="language-toggle" class="inline-flex items-center gap-2 p-2.5 
+              bg-gray-100 dark:bg-gray-800 
+              hover:bg-gray-200 dark:hover:bg-gray-700
+              rounded-full transition-all duration-300 
+              focus:outline-none shadow-md">
+
+              <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="Español"
+                class="w-5 h-5 rounded-sm">
+              <span id="current-lang"
+                class="hidden md:inline text-sm font-medium text-gray-900 dark:text-white">ES</span>
+
+              <svg class="w-4 h-4 text-gray-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+            <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 
+              bg-white dark:bg-gray-800 
+              rounded-lg shadow-lg 
+              border border-gray-200 dark:border-gray-700 
+              overflow-hidden z-50">
+
+              <button onclick="changeLanguage('es')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/es.svg') }}" alt="Español" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">Español</span>
+              </button>
+
+              <button onclick="changeLanguage('en')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="English" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">English</span>
+              </button>
+
+              <button onclick="changeLanguage('pt')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/pt.svg') }}" alt="Português" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">Português</span>
+              </button>
+
+              <button onclick="changeLanguage('fr')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/fr.svg') }}" alt="Français" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">Français</span>
+              </button>
+
+              <button onclick="changeLanguage('it')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/it.svg') }}" alt="Italiano" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">Italiano</span>
+              </button>
+
+              <button onclick="changeLanguage('de')" class="w-full flex items-center gap-3 px-4 py-2.5 
+                hover:bg-gray-100 dark:hover:bg-gray-700 
+                transition-colors">
+                <img src="{{ asset('imagenes/banderas/de.svg') }}" alt="Deutsch" class="w-5 h-5 rounded-sm">
+                <span class="text-sm text-gray-900 dark:text-white">Deutsch</span>
+              </button>
+            </div>
+          </div>
+
+          <a class="rounded-full bg-pink-600 p-2.5 px-3 text-sm font-medium text-white transition hover:bg-pink-700"
+            href="{{ route('login') }}" data-translate="nav_login">Ingresar</a>
+          <a class="hidden rounded-full p-2.5 px-3 text-sm font-medium text-white bg-pink-600 transition hover:bg-pink-700 lg:block"
+            href="{{ route('register') }}" data-translate="nav_register">Registro</a>
 
           <button id="menu-button"
             class="block rounded-sm bg-white text-black dark:bg-gray-900 dark:text-white p-2.5 hover:text-gray-600 lg:hidden">
@@ -88,11 +156,10 @@
     <div id="mobile-menu"
       class="hidden absolute top-16 left-0 w-full bg-white text-gray-900 dark:bg-gray-900 dark:text-white shadow-lg lg:hidden">
       <ul class="flex flex-col gap-4 p-6 text-md text-center ">
-
-        <li><a class="block" href="{{ route('arreglos') }}">Arreglos</a></li>
-        <li><a class="block" href="{{ route('juguetes') }}">Juguetes</a></li>
-        <li><a class="block" href="{{ route('peluches') }}">Peluches</a></li>
-        <li><a class="block" href="{{ route('ropaBebes') }}">Ropa de Bebé</a></li>
+        <li><a class="block" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
+        <li><a class="block" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
+        <li><a class="block" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
+        <li><a class="block" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
       </ul>
     </div>
   </header>
@@ -109,7 +176,8 @@
           class="hidden dark:block" width="105" height="40">
       </div>
 
-      <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300 ">
+      <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300 "
+        data-translate="footer_description">
         "Encuentra el regalo ideal para cualquier ocasión. Ofrecemos arreglos de rosas eternas, peluches, juguetes y
         ropa de bebé, perfectos para celebrar los momentos más especiales de la vida."
       </p>
@@ -117,15 +185,16 @@
       <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('nosotros') }}">Nosotros</a>
+            href="{{ route('nosotros') }}" data-translate="footer_about">Nosotros</a>
         </li>
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('politicaPrivacidad') }}">Política de Privacidad y Términos de Servicio</a>
+            href="{{ route('politicaPrivacidad') }}" data-translate="footer_privacy">Política de Privacidad y Términos
+            de Servicio</a>
         </li>
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('contacto') }}">Información de Contacto</a>
+            href="{{ route('contacto') }}" data-translate="footer_contact">Información de Contacto</a>
         </li>
       </ul>
 
@@ -194,47 +263,6 @@
         d="M11.215 9.587c-.17-.085-1.004-.497-1.159-.553-.155-.057-.27-.085-.384.085-.113.17-.44.553-.538.667-.099.113-.198.127-.368.042-.17-.085-.718-.265-1.367-.845-.505-.45-.848-1.005-.948-1.175-.099-.17-.01-.262.075-.347.077-.076.17-.198.255-.297.085-.099.113-.17.17-.284.057-.113.028-.212-.014-.297-.042-.085-.384-.923-.527-1.267-.138-.33-.279-.284-.384-.289l-.326-.006a.63.63 0 0 0-.454.212c-.155.17-.597.582-.597 1.419 0 .836.612 1.64.698 1.753.085.113 1.207 1.846 2.926 2.588.41.177.73.282.98.36.412.132.788.113 1.085.068.33-.049 1.004-.41 1.147-.807.142-.397.142-.738.099-.807-.042-.07-.155-.113-.326-.198z" />
     </svg>
   </a>
-
-  <script>
-    const menuButton = document.getElementById("menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  </script>
-
-  <script>
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-    const themeText = document.getElementById('theme-text');
-
-
-    function updateThemeUI(isDark) {
-      if (isDark) {
-        themeText.textContent = 'Modo Oscuro';
-      } else {
-        themeText.textContent = 'Modo Claro';
-      }
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && osPrefersDark)) {
-      htmlElement.classList.add('dark');
-      updateThemeUI(true);
-    } else {
-      htmlElement.classList.remove('dark');
-      updateThemeUI(false);
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-      const isDark = htmlElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeUI(isDark);
-    });
-  </script>
 
 </body>
 

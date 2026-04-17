@@ -458,9 +458,10 @@
           }
 
           // Mostrar SweetAlert de éxito
+          const direccionValue = document.getElementById('direccion').value.trim() || 'la dirección indicada';
           Swal.fire({
-            title: '¡Compra Realizada con Éxito!',
-            text: 'Tu pedido está siendo procesado. Te enviaremos un correo con los detalles.',
+            title: '¡Compra Realizada!',
+            text: `En un plazo de 14 días llegará su pedido a la dirección: ${direccionValue}.`,
             icon: 'success',
             showConfirmButton: true,
             confirmButtonText: 'Seguir Comprando',

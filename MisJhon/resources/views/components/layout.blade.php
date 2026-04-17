@@ -80,9 +80,21 @@
               <span class="text-sm font-medium dark:text-white">Español</span>
             </button>
             <button onclick="changeLanguage('en')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-              <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="EN" class="w-5 h-5 rounded-sm">
-              <span class="text-sm font-medium dark:text-white">English</span>
-            </button>
+                <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="EN" class="w-5 h-5 rounded-sm">
+                <span class="text-sm font-medium dark:text-white">English</span>
+              </button>
+              <button onclick="changeLanguage('pt')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <img src="{{ asset('imagenes/banderas/pt.svg') }}" alt="PT" class="w-5 h-5 rounded-sm">
+                <span class="text-sm font-medium dark:text-white">Português</span>
+              </button>
+              <button onclick="changeLanguage('fr')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <img src="{{ asset('imagenes/banderas/fr.svg') }}" alt="FR" class="w-5 h-5 rounded-sm">
+                <span class="text-sm font-medium dark:text-white">Français</span>
+              </button>
+              <button onclick="changeLanguage('it')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                <img src="{{ asset('imagenes/banderas/it.svg') }}" alt="IT" class="w-5 h-5 rounded-sm">
+                <span class="text-sm font-medium dark:text-white">Italiano</span>
+              </button>
           </div>
         </div>
 

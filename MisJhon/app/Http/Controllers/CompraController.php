@@ -14,7 +14,7 @@ class CompraController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nombre' => 'required|string|max:255',
             'apellido' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -24,7 +24,7 @@ class CompraController extends Controller
             'metodo_pago' => 'required|string',
         ]);
 
-        Compra::create($request->all());
+        Compra::create($validatedData);
 
         return redirect('/')->with('success', '¡Compra realizada con éxito!');
     }

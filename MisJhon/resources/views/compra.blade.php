@@ -181,7 +181,7 @@
                     class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300" {{ old('metodo_pago') == 'yape' ? 'checked' : '' }}>
                   <label for="pago_yape"
                     class="ml-3 flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer w-full">
-                    Pago con Yape
+                    <span data-translate="payment_yape_title">Pago con Yape</span>
                     <img src="{{ asset('imagenes/i__principal/yape_logo.svg') }}" alt="Yape"
                       class="ml-auto h-6 object-contain rounded-sm"
                       onerror="this.onerror=null; this.style.display='none'">
@@ -195,7 +195,7 @@
                     class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300" {{ old('metodo_pago') == 'plin' ? 'checked' : '' }}>
                   <label for="pago_plin"
                     class="ml-3 flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer w-full">
-                    Pago con Plin
+                    <span data-translate="payment_plin_title">Pago con Plin</span>
                     <img src="{{ asset('imagenes/i__principal/plin_logo.svg') }}" alt="Plin"
                       class="ml-auto h-6 object-contain rounded-sm"
                       onerror="this.onerror=null; this.style.display='none'">
@@ -234,6 +234,7 @@
               <div>
                 <label for="tarjeta_cvc" class="sr-only" data-translate="placeholder_cvc">CVC</label>
                 <input type="text" id="tarjeta_cvc" name="tarjeta_cvc" value="{{ old('tarjeta_cvc') }}"
+                  maxlength="3"
                   class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                   placeholder="CVC" data-translate-placeholder="placeholder_cvc" />
               </div>
@@ -252,32 +253,32 @@
           <!-- Yape Checkout Section -->
           <div id="info_yape"
             class="hidden space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
-            <h3 class="text-md font-semibold text-gray-900 dark:text-white">1. Escanea el QR de Yape para Pagar</h3>
+            <h3 class="text-md font-semibold text-gray-900 dark:text-white" data-translate="yape_step_1">1. Escanea el QR de Yape para Pagar</h3>
             <div class="bg-white p-2 rounded-xl inline-block shadow-sm">
               <img src="{{ asset('imagenes/i__principal/QR-yape.png') }}" alt="Código QR Yape"
                 class="mx-auto h-[180px] w-auto border-4 border-white rounded-lg" />
             </div>
-            <p class="text-sm font-medium text-pink-600 dark:text-pink-400 mt-2">Monto a Yapear: S/ <span
+            <p class="text-sm font-medium text-pink-600 dark:text-pink-400 mt-2"><span data-translate="yape_amount">Monto a Yapear: S/ </span><span
                 class="yape-total font-bold">0.00</span></p>
 
             <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 text-left">
-              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2">2. Verifica tu pago</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3">Introduce el Número de Operación de tu Yape.</p>
+              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2" data-translate="verify_payment">2. Verifica tu pago</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span data-translate="yape_op_desc">Introduce el Número de Operación de tu Yape.</span></p>
               <input type="text" id="numero_operacion_yape" name="numero_operacion_yape"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Ej. 12345678" />
             </div>
             <!-- Optional QR reader -->
             <details class="text-left mt-4">
-                <summary class="text-xs text-purple-600 dark:text-purple-400 cursor-pointer font-medium hover:underline">¿O prefieres usar tu cámara y escanear el comprobante?</summary>
+                <summary class="text-xs text-purple-600 dark:text-purple-400 cursor-pointer font-medium hover:underline"><span data-translate="qr_prompt">¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
                 <div class="mt-2">
                     <div id="qr-reader-yape" class="mx-auto w-full max-w-sm rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white" style="display:none;"></div>
                     <button type="button" id="btn-scan-qr-yape" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg text-sm w-full transition-colors flex justify-center items-center gap-2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        Escanear Comprobante Yape
+                        <span data-translate="btn_scan_yape">Escanear Comprobante Yape</span>
                     </button>
                     <div id="qr-result-yape" class="mt-4 hidden p-3 bg-green-100 text-green-800 rounded-lg text-sm font-medium border border-green-200">
-                    ¡Código detectado!<br><span id="qr-scanned-text-yape" class="font-bold break-words"></span>
+                    <span data-translate="qr_detected">¡Código detectado!</span><br><span id="qr-scanned-text-yape" class="font-bold break-words"></span>
                     </div>
                 </div>
             </details>
@@ -286,32 +287,32 @@
           <!-- Plin Checkout Section -->
           <div id="info_plin"
             class="hidden space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
-            <h3 class="text-md font-semibold text-gray-900 dark:text-white">1. Escanea el QR de Plin para Pagar</h3>
+            <h3 class="text-md font-semibold text-gray-900 dark:text-white" data-translate="plin_step_1">1. Escanea el QR de Plin para Pagar</h3>
             <div class="bg-white p-2 rounded-xl inline-block shadow-sm">
               <img src="{{ asset('imagenes/i__principal/QR-plin.png') }}" alt="Código QR Plin"
                 class="mx-auto h-[180px] w-auto border-4 border-white rounded-lg" />
             </div>
-            <p class="text-sm font-medium text-blue-600 dark:text-blue-400 mt-2">Monto a Plinear: S/ <span
+            <p class="text-sm font-medium text-blue-600 dark:text-blue-400 mt-2"><span data-translate="plin_amount">Monto a Plinear: S/ </span><span
                 class="yape-total font-bold">0.00</span></p>
 
             <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 text-left">
-              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2">2. Verifica tu pago</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3">Introduce el Número de Operación de tu Plin.</p>
+              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2" data-translate="verify_payment">2. Verifica tu pago</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span data-translate="plin_op_desc">Introduce el Número de Operación de tu Plin.</span></p>
               <input type="text" id="numero_operacion_plin" name="numero_operacion_plin"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Ej. 12345678" />
             </div>
             <!-- Optional QR reader -->
             <details class="text-left mt-4">
-                <summary class="text-xs text-blue-600 dark:text-blue-400 cursor-pointer font-medium hover:underline">¿O prefieres usar tu cámara y escanear el comprobante?</summary>
+                <summary class="text-xs text-blue-600 dark:text-blue-400 cursor-pointer font-medium hover:underline"><span data-translate="qr_prompt">¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
                 <div class="mt-2">
                     <div id="qr-reader-plin" class="mx-auto w-full max-w-sm rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white" style="display:none;"></div>
                     <button type="button" id="btn-scan-qr-plin" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-sm w-full transition-colors flex justify-center items-center gap-2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        Escanear Comprobante Plin
+                        <span data-translate="btn_scan_plin">Escanear Comprobante Plin</span>
                     </button>
                     <div id="qr-result-plin" class="mt-4 hidden p-3 bg-green-100 text-green-800 rounded-lg text-sm font-medium border border-green-200">
-                    ¡Código detectado!<br><span id="qr-scanned-text-plin" class="font-bold break-words"></span>
+                    <span data-translate="qr_detected">¡Código detectado!</span><br><span id="qr-scanned-text-plin" class="font-bold break-words"></span>
                     </div>
                 </div>
             </details>
@@ -363,6 +364,45 @@
       });
 
       actualizarVistaPago();
+
+      // Formateo de Tarjeta de Crédito/Débito
+      const inputTarjetaNum = document.getElementById('tarjeta_num');
+      if (inputTarjetaNum) {
+        inputTarjetaNum.addEventListener('input', function (e) {
+          let value = e.target.value.replace(/\D/g, ''); // Solo números
+          if (value.length > 16) value = value.slice(0, 16);
+          let formattedValue = '';
+          for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) formattedValue += ' ';
+            formattedValue += value[i];
+          }
+          e.target.value = formattedValue;
+        });
+      }
+
+      // Formateo de Fecha (MM/AA)
+      const inputTarjetaFecha = document.getElementById('tarjeta_fecha');
+      if (inputTarjetaFecha) {
+        inputTarjetaFecha.addEventListener('input', function (e) {
+          let value = e.target.value.replace(/\D/g, ''); // Solo números
+          if (value.length > 4) value = value.slice(0, 4);
+          if (value.length > 2) {
+            e.target.value = value.slice(0, 2) + '/' + value.slice(2);
+          } else {
+            e.target.value = value;
+          }
+        });
+      }
+
+      // Formateo de CVC
+      const inputTarjetaCvc = document.getElementById('tarjeta_cvc');
+      if (inputTarjetaCvc) {
+        inputTarjetaCvc.addEventListener('input', function (e) {
+          let value = e.target.value.replace(/\D/g, ''); // Solo números
+          if (value.length > 3) value = value.slice(0, 3);
+          e.target.value = value;
+        });
+      }
 
       // Integración Lector QR (html5-qrcode) para múltiples contenedores
       function initQrScanner(btnId, readerDivId, resultDivId, resultTextId, inputTargetId) {
@@ -429,28 +469,76 @@
         form.addEventListener('submit', function (e) {
           e.preventDefault();
 
-          // Validación extra para Yape y Plin
+          // Validación de Método de Pago requerido
           const selectedRadio = document.querySelector('input[name="metodo_pago"]:checked');
+          if (!selectedRadio) {
+            swal({
+              title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_payment_title || 'Seleccione un método de pago',
+              text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_payment_text || 'Por favor, indique con qué método de pago desea realizar su compra.',
+              icon: 'warning',
+              button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
+            });
+            return;
+          }
+
           if (selectedRadio) {
-            if (selectedRadio.value === 'yape') {
+            if (selectedRadio.value === 'tarjeta') {
+              const tarjetaNum = document.getElementById('tarjeta_num').value.replace(/\s+/g, '');
+              const tarjetaFecha = document.getElementById('tarjeta_fecha').value.trim();
+              const tarjetaCvc = document.getElementById('tarjeta_cvc').value.trim();
+
+              const numRegex = /^\d{16}$/;
+              const fechaRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+              const cvcRegex = /^\d{3}$/;
+
+              if (!numRegex.test(tarjetaNum)) {
+                swal({
+                  title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_num_title || 'Número de tarjeta inválido',
+                  text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_num_text || 'Por favor, ingrese un número de tarjeta válido de 16 dígitos numéricos sin letras.',
+                  icon: 'warning',
+                  button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
+                });
+                return;
+              }
+
+              if (!fechaRegex.test(tarjetaFecha)) {
+                swal({
+                  title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_date_title || 'Fecha inválida',
+                  text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_date_text || 'Por favor, ingrese una fecha de vencimiento válida en el formato MM/AA.',
+                  icon: 'warning',
+                  button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
+                });
+                return;
+              }
+
+              if (!cvcRegex.test(tarjetaCvc)) {
+                swal({
+                  title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_cvc_title || 'CVC inválido',
+                  text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_card_cvc_text || 'Por favor, ingrese un CVC válido de 3 dígitos numéricos.',
+                  icon: 'warning',
+                  button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
+                });
+                return;
+              }
+            } else if (selectedRadio.value === 'yape') {
               const numOperacion = document.getElementById('numero_operacion_yape').value.trim();
               if (!numOperacion) {
-                Swal.fire({
-                  title: 'Campo requerido',
-                  text: 'Por favor, ingrese el Número de Operación de Yape.',
+                swal({
+                  title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_required_title || 'Campo requerido',
+                  text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_required_yape_text || 'Por favor, ingrese el Número de Operación de Yape.',
                   icon: 'warning',
-                  confirmButtonColor: '#ec4899'
+                  button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
                 });
                 return;
               }
             } else if (selectedRadio.value === 'plin') {
               const numOperacion = document.getElementById('numero_operacion_plin').value.trim();
               if (!numOperacion) {
-                Swal.fire({
-                  title: 'Campo requerido',
-                  text: 'Por favor, ingrese el Número de Operación de Plin.',
+                swal({
+                  title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_required_title || 'Campo requerido',
+                  text: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_required_plin_text || 'Por favor, ingrese el Número de Operación de Plin.',
                   icon: 'warning',
-                  confirmButtonColor: '#ec4899'
+                  button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_ok || 'Aceptar'
                 });
                 return;
               }
@@ -459,15 +547,11 @@
 
           // Mostrar SweetAlert de éxito
           const direccionValue = document.getElementById('direccion').value.trim() || 'la dirección indicada';
-          Swal.fire({
-            title: '¡Compra Realizada!',
+          swal({
+            title: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_success_title || '¡Compra Realizada!',
             text: `En un plazo de 14 días llegará su pedido a la dirección: ${direccionValue}.`,
             icon: 'success',
-            showConfirmButton: true,
-            confirmButtonText: 'Seguir Comprando',
-            confirmButtonColor: '#ec4899',
-            background: document.documentElement.classList.contains('dark') ? '#1f2937' : '#ffffff',
-            color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#111827',
+            button: window.translations?.[localStorage.getItem('misjhon-language') || 'es']?.alert_success_btn || 'Seguir Comprando',
           }).then((result) => {
             // Limpiar el carrito
             localStorage.removeItem('misjhon_cart');
@@ -479,11 +563,7 @@
             }
 
             // Redirigir al inicio o enviar el formulario real si el backend lo requiere.
-            // Para este simulador, simplemente redirigimos y no guardamos en DB:
-            window.location.href = "{{ route('home') }}";
-
-            // O si deseas enviar a la DB y que el controlador te redirija:
-            // form.submit(); 
+            form.submit();
           });
         });
       }

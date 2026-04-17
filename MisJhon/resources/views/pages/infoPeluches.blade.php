@@ -16,7 +16,7 @@
         <img class="rounded-xl object-cover" src="{{ asset('imagenes/i__peluches/Peluches.png') }}"
           alt="Novedades MisJhon">
         <img class="rounded-xl w-96 object-cover" src="{{ asset('imagenes/i__peluches/PELUCHES') }} PRINCIPAL.jpeg"
-          alt="">
+          alt="Colección principal de peluches">
         <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify" data-translate="ip2">
           Nuestros juguetes están hechos para durar y para acompañar a los niños en sus descubrimientos. Nos aseguramos
           de que cada uno cumpla con los más altos estándares de seguridad y que sea ideal para las diferentes etapas de

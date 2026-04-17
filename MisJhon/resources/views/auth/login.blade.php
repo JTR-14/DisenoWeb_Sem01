@@ -2,10 +2,10 @@
   <main class="bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
-        <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
+        <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
           data-translate="form_login_title">
           Ingresar
-        </h2>
+        </h1>
 
         <form action="{{ route('login') }}" method="POST"
           class="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
@@ -30,7 +30,7 @@
             <div class="relative">
               <input required type="email" name="email" id="email" value="{{ old('email') }}"
                 class="w-full rounded-lg border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Email" data-translate-placeholder="placeholder_email" />
+                placeholder="Email" data-translate-placeholder="placeholder_email" autocomplete="email" />
 
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200" fill="none"
@@ -48,7 +48,7 @@
             <div class="relative">
               <input required type="password" name="password" id="password"
                 class="w-full rounded-lg border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Contraseña" data-translate-placeholder="placeholder_password" />
+                placeholder="Contraseña" data-translate-placeholder="placeholder_password" autocomplete="current-password" />
 
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200" fill="none"

@@ -2,9 +2,9 @@
   <main>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <section class="text-center">
-        <h2 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white" data-translate="home_headline">
+        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white" data-translate="home_headline">
           Todo lo que buscas, en un solo lugar
-        </h2>
+        </h1>
 
         <p class="mx-auto mt-4 max-w-md text-gray-500 dark:text-gray-400" data-translate="home_description">
           "Descubre regalos únicos para cada ocasión. Arreglos de rosas eternas, ropa de bebé, juguetes y peluches de la
@@ -70,15 +70,15 @@
         </li>
       </ul>
 
-      <p class="text-center text-gray-900 dark:text-white font-bold my-4 text-lg" data-translate="home_how_to_find">
+      <h2 class="text-center text-gray-900 dark:text-white font-bold my-4 text-lg" data-translate="home_how_to_find">
         ¿Cómo encontrarnos?
-      </p>
+      </h2>
 
       <div class="relative w-full pb-[56.25%] p-2 mt-2">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.966954158598!2d-78.31213472645994!3d-8.002344892023586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91adbfb0e8303f75%3A0xa23a35eed63b0d31!2sNovedades%20%22MisJhon%22!5e0!3m2!1ses-419!2spe!4v1751485592893!5m2!1ses-419!2spe"
           class="absolute top-0 left-0 w-full h-full border-0 rounded-md dark:filter dark:invert(1) dark:hue-rotate(180deg) transition-all duration-300"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Novedades MisJhon en Google Maps">
         </iframe>
       </div>
     </div>

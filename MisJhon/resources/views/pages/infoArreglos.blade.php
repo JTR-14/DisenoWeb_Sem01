@@ -17,7 +17,7 @@
         <img class="rounded-xl object-cover" src="{{ asset('imagenes/i__arreglos/Arreglos.png') }}"
           alt="Novedades MisJhon">
         <img class="rounded-xl w-96 object-cover" src="{{ asset('imagenes/i__arreglos/ROSAS') }} ETERNAS PRINCIPAL.jpg"
-          alt="">
+          alt="Rosas eternas de Novedades MisJhon">
         <p class="mt-4 text-gray-600 dark:text-gray-400 text-justify" data-translate="ia2">
           Nuestra colección de arreglos de flores eternas es tan diversa como los sentimientos que quieres expresar. Ya
           sea que busques un arreglo elegante para decorar un espacio, un detalle romántico para un aniversario o un

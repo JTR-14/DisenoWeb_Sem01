@@ -20,6 +20,9 @@
 
 <body class="relative bg-white dark:bg-gray-900 transition-colors duration-300">
 
+  <!-- WCAG 2.4.1: Skip to main content link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-pink-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold">Ir al contenido principal</a>
+
   <header class="bg-white dark:bg-gray-900 dark:text-white sticky top-0 z-50 shadow-sm border-b border-gray-100 dark:border-gray-800">
     <div class="mx-auto flex h-20 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
       <!-- Logo Section -->
@@ -34,7 +37,7 @@
       </div>
 
       <!-- Navigation Section (Hidden on small desktop) -->
-      <nav class="hidden xl:block">
+      <nav class="hidden xl:block" aria-label="Navegación principal">
         <ul class="flex gap-6 text-[15px] font-semibold text-gray-700 dark:text-gray-200">
           <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
           <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
@@ -46,9 +49,9 @@
       <!-- Search Bar (Flexible width) -->
       <div class="hidden lg:block flex-1 max-w-xs px-2">
         <div class="relative">
-          <input type="text" id="product-search-input" placeholder="Buscar..." 
+          <input type="text" id="product-search-input" placeholder="Buscar..." aria-label="Buscar productos"
             class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm transition-all" data-translate-placeholder="search_placeholder">
-          <svg class="w-5 h-5 absolute left-3 top-[27px] transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 absolute left-3 top-[27px] transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </div>
@@ -58,7 +61,7 @@
       <div class="flex items-center gap-2 sm:gap-3">
         
         <!-- Theme Toggle -->
-        <button id="theme-toggle" class="p-2.5 rounded-full bg-yellow-400 hover:bg-yellow-500 dark:bg-indigo-700 dark:hover:bg-indigo-800 text-black dark:text-white shadow-sm transition-all focus:outline-none" title="Cambiar Tema">
+        <button id="theme-toggle" class="p-2.5 rounded-full bg-yellow-400 hover:bg-yellow-500 dark:bg-indigo-700 dark:hover:bg-indigo-800 text-black dark:text-white shadow-sm transition-all" title="Cambiar Tema" aria-label="Cambiar tema de color">
           <span id="moon-icon" class="hidden dark:block">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9 0 008.354-5.646z"></path></svg>
           </span>
@@ -69,12 +72,12 @@
 
         <!-- Language Toggle (Compact) -->
         <div class="relative">
-          <button id="language-toggle" class="flex items-center p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm transition-all">
-            <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="ES" class="w-5 h-5 rounded-sm">
-            <svg class="w-4 h-4 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          <button id="language-toggle" class="flex items-center p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm transition-all" aria-label="Seleccionar idioma" aria-expanded="false" aria-haspopup="true">
+            <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="Idioma actual" class="w-5 h-5 rounded-sm">
+            <svg class="w-4 h-4 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           
-          <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50">
+          <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50" role="menu" aria-label="Idiomas disponibles">
             <button onclick="changeLanguage('es')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
               <img src="{{ asset('imagenes/banderas/es.svg') }}" alt="ES" class="w-5 h-5 rounded-sm">
               <span class="text-sm font-medium dark:text-white">Español</span>
@@ -101,14 +104,14 @@
         <!-- Icons Group -->
         <div class="flex items-center gap-1">
           <!-- Cart -->
-          <a href="{{ route('compra') }}" class="relative p-2.5 text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors" title="Ver Carrito">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" /></svg>
+          <a href="{{ route('compra') }}" class="relative p-2.5 text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors" title="Ver Carrito" aria-label="Ver carrito de compras">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" /></svg>
             <span id="cart-badge" class="absolute top-1 right-1 bg-pink-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-white dark:border-gray-900 hidden">0</span>
           </a>
 
           <!-- Admin -->
-          <a href="{{ route('productos.index') }}" class="p-2.5 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors" title="Administración">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" /></svg>
+          <a href="{{ route('productos.index') }}" class="p-2.5 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors" title="Administración" aria-label="Panel de administración">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" /></svg>
           </a>
         </div>
 
@@ -119,8 +122,8 @@
         </div>
 
         <!-- Mobile Menu Trigger (Hamburger) -->
-        <button id="menu-button" class="xl:hidden p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <button id="menu-button" class="xl:hidden p-2 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -134,21 +137,21 @@
 
       <div class="p-4 lg:hidden">
         <div class="relative">
-          <input type="text" id="mobile-product-search" placeholder="Buscar productos..." 
+          <input type="text" id="mobile-product-search" placeholder="Buscar productos..." aria-label="Buscar productos"
             class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm">
-          <svg class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </div>
       </div>
 
       <!-- Links de Navegación -->
-      <ul class="flex flex-col p-4 text-md font-medium text-center space-y-2">
+      <nav aria-label="Navegación móvil"><ul class="flex flex-col p-4 text-md font-medium text-center space-y-2">
         <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
         <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
         <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
         <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
-      </ul>
+      </ul></nav>
 
 
       <div class="p-4 flex flex-col gap-3">
@@ -162,7 +165,9 @@
     </div>
   </header>
 
+  <div id="main-content">
   {{ $slot }}
+  </div>
 
   <footer
     class="bg-white dark:bg-gray-900 shadow-[0_-1px_5px_rgba(0,0,0,0.1)] dark:shadow-[0_-1px_5px_rgb(255_255_255_/_0.2)]">
@@ -180,7 +185,7 @@
         ropa de bebé, perfectos para celebrar los momentos más especiales de la vida."
       </p>
 
-      <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+      <nav aria-label="Enlaces del pie de página"><ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
             href="{{ route('nosotros') }}" data-translate="footer_about">Nosotros</a>
@@ -194,15 +199,15 @@
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
             href="{{ route('contacto') }}" data-translate="footer_contact">Información de Contacto</a>
         </li>
-      </ul>
+      </ul></nav>
 
-      <ul class="mt-12 flex justify-center gap-6 md:gap-8">
+      <nav aria-label="Redes sociales"><ul class="mt-12 flex justify-center gap-6 md:gap-8">
         <li>
           <a href="https://api.whatsapp.com/send?phone=51973392986&text=Quiero%20realizar%20la%20siguiente%20consulta"
             target="_blank" rel="noreferrer"
             class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 transition">
             <span class="sr-only">Whatsapp</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" class="bi bi-whatsapp"
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" aria-hidden="true"
               viewBox="0 0 16 16">
               <path
                 d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
@@ -231,15 +236,16 @@
             </svg>
           </a>
         </li>
-      </ul>
+      </ul></nav>
     </div>
   </footer>
 
 
 
-  <a href="https://wa.me/51973392986" target="_blank"
+  <a href="https://wa.me/51973392986" target="_blank" aria-label="Contactar por WhatsApp"
     class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-6 h-6">
+    <span class="sr-only">Contactar por WhatsApp</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-6 h-6" aria-hidden="true">
       <path
         d="M13.601 2.326A7.902 7.902 0 0 0 8.017.25C3.74.25.25 3.738.25 8.017c0 1.41.368 2.796 1.07 4.024L.25 15.75l3.79-1.008A7.925 7.925 0 0 0 8.016 15.75c4.277 0 7.767-3.487 7.767-7.767a7.73 7.73 0 0 0-2.182-5.657zM8.016 14.1a6.092 6.092 0 0 1-3.247-.918l-.23-.137-2.245.596.6-2.19-.15-.23A6.11 6.11 0 0 1 1.9 8.018c0-3.386 2.737-6.122 6.118-6.122a6.1 6.1 0 0 1 4.316 1.788 6.05 6.05 0 0 1 1.785 4.334c0 3.384-2.736 6.122-6.103 6.122z" />
       <path

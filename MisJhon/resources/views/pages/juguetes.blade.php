@@ -4,9 +4,9 @@
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <header class="text-center">
         <div class="flex justify-center gap-6 text-gray-900 dark:text-white">
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl" data-translate="titulo_juguetes">
-            Colección de Juguetes</h2>
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14">
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl" data-translate="titulo_juguetes">
+            Colección de Juguetes</h1>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14" aria-hidden="true">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M7 4.469c1.12 0 1.75-.63 1.75-1.75S8.12.969 7 .969s-1.75.63-1.75 1.75s.63 1.75 1.75 1.75m4.099 1.953C9.753 5.144 8.039 6.37 7 7.407c-1.038-1.038-2.752-2.263-4.098-.985C.678 8.534 5.045 12.736 7 13.058c1.956-.322 6.322-4.524 4.099-6.636"
               stroke-width="1" />
@@ -22,7 +22,7 @@
 
         @foreach($productos as $producto)
           <li class="group block overflow-hidden rounded-t-2xl">
-            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}"
+            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}" loading="lazy"
               class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px]">
 
             <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5">
@@ -36,7 +36,8 @@
                     {{ number_format($producto->precio, 2) }}</span>
                 </p>
                 <button
-                  class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600">
+                  class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
+                  aria-label="Añadir al carrito: {{ $producto->titulo }}">
                   Añadir al carrito
                 </button>
               </div>
@@ -45,7 +46,7 @@
         @endforeach
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J1.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J1.jpg') }}" alt="Excavadora de Juguete" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -61,14 +62,14 @@
               </p>
               <button
                 class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
+                data-translate="btn_add_cart" aria-label="Añadir al carrito: Excavadora de Juguete">
                 Añadir al carrito </button>
             </div>
           </div>
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J2.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J2.jpg') }}" alt="Sonaja 8 unidades (animalitos)" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -84,14 +85,14 @@
               </p>
               <button
                 class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
+                data-translate="btn_add_cart" aria-label="Añadir al carrito: Sonaja 8 unidades">
                 Añadir al carrito </button>
             </div>
           </div>
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J3.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J3.jpg') }}" alt="Set de Maquinaria pesada" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -114,7 +115,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J4.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J4.jpg') }}" alt="Excavadora y Camión" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -136,7 +137,7 @@
           </div>
         </li>
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J5.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J5.jpg') }}" alt="Carrito feliz ABC123" loading="lazy"
             class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5 ">
@@ -159,7 +160,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J6.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J6.jpg') }}" alt="Set de alimentos con pega-pega" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -182,7 +183,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J7.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J7.jpg') }}" alt="Set de cocina 3 en 1" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -205,7 +206,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J8.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J8.jpg') }}" alt="Cono de Aros apilables" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -228,7 +229,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__juguetes/J9.jpg') }}" alt=""
+          <img src="{{ asset('imagenes/i__juguetes/J9.jpg') }}" alt="Carro a control remoto rojo" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">

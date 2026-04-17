@@ -13,7 +13,7 @@
         </p>
         <img class="rounded-xl h-64 object-cover" src="{{ asset('imagenes/i__principal/LogotipoTienda.png') }}"
           alt="Novedades MisJhon">
-        <img class="rounded-xl h-64 w-96 object-cover" src="{{ asset('imagenes/i__principal/N2.jpg') }}" alt="">
+        <img class="rounded-xl h-64 w-96 object-cover" src="{{ asset('imagenes/i__principal/N2.jpg') }}" alt="Equipo de trabajo de Novedades MisJhon">
         <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify" data-translate="n2">
           En nuestra tienda, cada artículo es seleccionado con mucho cuidado. Por un lado, tenemos peluches, juguetes y
           ropa para bebé que son más que simples objetos; son companions de aventuras y prendas que celebran la
@@ -28,7 +28,7 @@
           tus manos. Queremos ser parte de tus momentos especiales y ayudarte a crear recuerdos inolvidables. Gracias
           por visitarnos y por ser parte de nuestra historia.
         </p>
-        <img src="{{ asset('imagenes/i__principal/N3.jpg') }}" alt="" class="rounded-xl h-64 w-96 object-cover">
+        <img src="{{ asset('imagenes/i__principal/N3.jpg') }}" alt="Productos de Novedades MisJhon" class="rounded-xl h-64 w-96 object-cover">
       </div>
     </div>
   </main>

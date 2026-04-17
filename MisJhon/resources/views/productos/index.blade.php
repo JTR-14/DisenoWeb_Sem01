@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
   
-  <div class="container mx-auto px-4 py-8">
+  <main class="container mx-auto px-4 py-8">
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Gestión de Productos</h1>
       <a href="{{ route('productos.create') }}" 
@@ -24,7 +24,7 @@
     </div>
 
     @if(session('success'))
-      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">
         {{ session('success') }}
       </div>
     @endif
@@ -33,11 +33,11 @@
       <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
         <thead class="bg-gray-100 dark:bg-gray-700">
           <tr>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Imagen</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Título</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Precio</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Categoría</th>
-            <th class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Acciones</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Imagen</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Título</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Precio</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Categoría</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">Acciones</th>
           </tr>
         </thead>
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -83,7 +83,7 @@
     <div class="mt-6">
       <a href="{{ route('home') }}" class="text-pink-500 hover:underline">← Volver al inicio</a>
     </div>
-  </div>
+  </main>
 
 </body>
 </html>

@@ -1,9 +1,9 @@
 <x-layout>
 
   <main class="m-4 mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-    <h3 class="font-bold text-2xl text-center text-gray-900 dark:text-white" data-translate="privacy_title">
+    <h1 class="font-bold text-2xl text-center text-gray-900 dark:text-white" data-translate="privacy_title">
       Términos y Condiciones
-    </h3>
+    </h1>
     <ul
       class="text-sm text-gray-900 dark:text-gray-300 grid grid-cols-2 md:grid-cols-3 md:text-md place-items-center gap-4 mt-4">
       <li><a class="hover:underline dark:text-white dark:hover:text-gray-400" href="#2"

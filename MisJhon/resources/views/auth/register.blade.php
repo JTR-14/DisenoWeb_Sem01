@@ -2,10 +2,10 @@
   <main class="bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
-        <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
+        <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
           data-translate="form_register_title">
           Crear una cuenta
-        </h2>
+        </h1>
 
         <form id="formRegistro" action="{{ route('register') }}" method="POST"
           class="mt-6 mb-0 space-y-6 rounded-lg p-6 shadow-xl bg-white dark:bg-gray-800">
@@ -28,58 +28,58 @@
           @endif
 
           <div>
-            <label class="sr-only" data-translate="form_name">Nombre Completo</label>
+            <label for="name" class="sr-only" data-translate="form_name">Nombre Completo</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              <input type="text" required name="name" value="{{ old('name') }}"
+              <input type="text" required name="name" id="name" value="{{ old('name') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Nombre completo" data-translate-placeholder="placeholder_fullname">
+                placeholder="Nombre completo" data-translate-placeholder="placeholder_fullname" autocomplete="name">
             </div>
           </div>
 
           <div>
-            <label class="sr-only" data-translate="form_email">Email</label>
+            <label for="email" class="sr-only" data-translate="form_email">Email</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
               </svg>
-              <input type="email" required name="email" value="{{ old('email') }}"
+              <input type="email" required name="email" id="email" value="{{ old('email') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Correo electrónico" data-translate-placeholder="placeholder_email">
+                placeholder="Correo electrónico" data-translate-placeholder="placeholder_email" autocomplete="email">
             </div>
           </div>
 
           <div>
-            <label class="sr-only" data-translate="form_phone">Teléfono</label>
+            <label for="telefono" class="sr-only" data-translate="form_phone">Teléfono</label>
             <div class="relative flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 size-5 text-gray-500 dark:text-gray-200"
                 viewBox="0 0 24 24">
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233a14 14 0 0 0 6.392 6.384" />
               </svg>
-              <input type="tel" required name="telefono" value="{{ old('telefono') }}"
+              <input type="tel" required name="telefono" id="telefono" value="{{ old('telefono') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Número de teléfono" data-translate-placeholder="placeholder_phone_register">
+                placeholder="Número de teléfono" data-translate-placeholder="placeholder_phone_register" autocomplete="tel">
             </div>
           </div>
 
           <div>
-            <label class="sr-only" data-translate="form_address">Dirección</label>
+            <label for="direccion" class="sr-only" data-translate="form_address">Dirección</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z" />
               </svg>
-              <input type="text" required name="direccion" value="{{ old('direccion') }}"
+              <input type="text" required name="direccion" id="direccion" value="{{ old('direccion') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Dirección completa" data-translate-placeholder="placeholder_address_full">
+                placeholder="Dirección completa" data-translate-placeholder="placeholder_address_full" autocomplete="street-address">
             </div>
           </div>
 
@@ -106,7 +106,7 @@
           </div>
 
           <div>
-            <label class="sr-only" data-translate="form_password">Contraseña</label>
+            <label for="password" class="sr-only" data-translate="form_password">Contraseña</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -115,7 +115,7 @@
               </svg>
               <input type="password" id="password" name="password" required
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Contraseña" data-translate-placeholder="placeholder_password">
+                placeholder="Contraseña" data-translate-placeholder="placeholder_password" autocomplete="new-password">
             </div>
             <p class="text-red-500 text-sm text-center mt-2" data-translate="pass_length_hint">La contraseña debe tener
               al menos 8 caracteres</p>
@@ -132,7 +132,7 @@
 
               <input type="password" id="password2" required name="password2"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Confirmar contraseña" data-translate-placeholder="placeholder_confirm_password">
+                placeholder="Confirmar contraseña" data-translate-placeholder="placeholder_confirm_password" autocomplete="new-password">
             </div>
             <p id="msgPass" class="text-sm mt-1 font-medium text-center"></p>
           </div>

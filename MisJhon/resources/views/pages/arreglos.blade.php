@@ -4,9 +4,9 @@
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <section class="text-center">
         <div class="flex justify-center gap-6 text-gray-900 dark:text-white">
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl" data-translate="titulo_arreglos">
-            Colección de Arreglos de Rosas Eternas</h2>
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14">
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl" data-translate="titulo_arreglos">
+            Colección de Arreglos de Rosas Eternas</h1>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14" aria-hidden="true">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               d="M7 4.469c1.12 0 1.75-.63 1.75-1.75S8.12.969 7 .969s-1.75.63-1.75 1.75s.63 1.75 1.75 1.75m4.099 1.953C9.753 5.144 8.039 6.37 7 7.407c-1.038-1.038-2.752-2.263-4.098-.985C.678 8.534 5.045 12.736 7 13.058c1.956-.322 6.322-4.524 4.099-6.636"
               stroke-width="1" />
@@ -23,7 +23,7 @@
 
         @foreach($productos as $producto)
           <li class="group block overflow-hidden rounded-t-2xl">
-            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}"
+            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}" loading="lazy"
               class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px]">
 
             <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5">
@@ -37,7 +37,8 @@
                     {{ number_format($producto->precio, 2) }}</span>
                 </p>
                 <button onclick="comprar()"
-                  class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600">
+                  class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
+                  aria-label="Añadir al carrito: {{ $producto->titulo }}">
                   Añadir al carrito
                 </button>
               </div>
@@ -46,7 +47,7 @@
         @endforeach
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A1.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A1.png') }}" alt="Arreglo de rosas eternas con osito cariñosito" loading="lazy"
             class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5 ">
@@ -68,7 +69,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A2.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A2.png') }}" alt="Arreglo de rosas eternas con peluche Angela" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -90,7 +91,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A3.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A3.png') }}" alt="Rosa eterna con frase Feliz Cumple" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -113,7 +114,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A4.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A4.png') }}" alt="Rosa eterna rosado pastel" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -136,7 +137,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A5.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A5.png') }}" alt="Rosa eterna azul" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -159,7 +160,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A6.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A6.png') }}" alt="Girasol con frase Feliz Cumple" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -182,7 +183,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A7.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A7.png') }}" alt="Arreglo de rosas eternas con mariposas" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -205,7 +206,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A8.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A8.png') }}" alt="Arreglo con 19 rosas eternas, con frase y corona" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -228,7 +229,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl ">
-          <img src="{{ asset('imagenes/i__arreglos/A9.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A9.png') }}" alt="Arreglo de rosas eternas con flores blancas" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -251,7 +252,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A10.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A10.png') }}" alt="Arreglo de rosas blancas y rosas con coronita" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -274,7 +275,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A11.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A11.png') }}" alt="Arreglo con corazón fuego, frase Feliz cumpleaños" loading="lazy"
             class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5 ">
@@ -296,7 +297,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A12.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A12.png') }}" alt="Graduado con tulipanes" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -318,7 +319,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A13.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A13.png') }}" alt="Ramo con carrito HotWheel" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -341,7 +342,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A14.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A14.png') }}" alt="Stich importado, con rosas eternas" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -364,7 +365,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A15.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A15.png') }}" alt="Girasoles eternos" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -387,7 +388,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A16.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A16.png') }}" alt="Arreglo de rosas eternas rojas con osito" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -410,7 +411,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A17.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A17.png') }}" alt="Girasol más tulipanes" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -433,7 +434,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A18.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A18.png') }}" alt="Arreglo de rosas eternas amarillas con osito blanco" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -456,7 +457,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl ">
-          <img src="{{ asset('imagenes/i__arreglos/A19.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A19.png') }}" alt="Arreglo de tulipanes rosas con golosinas y peluche" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -479,7 +480,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A20.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A20.png') }}" alt="Arreglo de osito minero con rosas eternas azules" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
@@ -502,7 +503,7 @@
         </li>
 
         <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__arreglos/A21.png') }}" alt=""
+          <img src="{{ asset('imagenes/i__arreglos/A21.png') }}" alt="Arreglo de rosas azules con peluche de pinguino" loading="lazy"
             class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
           <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">

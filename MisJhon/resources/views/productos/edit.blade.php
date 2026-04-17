@@ -14,11 +14,11 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
   
-  <div class="container mx-auto px-4 py-8 max-w-2xl">
+  <main class="container mx-auto px-4 py-8 max-w-2xl">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Editar Producto</h1>
 
     @if ($errors->any())
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
         <strong class="font-bold">¡Error!</strong>
         <ul class="mt-2 list-inside">
           @foreach ($errors->all() as $error)
@@ -102,7 +102,7 @@
           Deja este campo vacío si no deseas cambiar la imagen
         </p>
         
-        <img id="preview" class="mt-4 hidden h-40 w-40 object-cover rounded-lg border">
+        <img id="preview" class="mt-4 hidden h-40 w-40 object-cover rounded-lg border" alt="Vista previa del producto">
       </div>
 
       
@@ -117,7 +117,7 @@
         </a>
       </div>
     </form>
-  </div>
+  </main>
 
   <script>
     // Preview de la imagen antes de subir

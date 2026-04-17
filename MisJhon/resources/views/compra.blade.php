@@ -2,10 +2,10 @@
   <main class="bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
-        <h2 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
+        <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
           data-translate="form_purchase_title">
           Formulario de Compra por Delivery
-        </h2>
+        </h1>
 
         <form action="{{ route('compra') }}" method="POST" id="checkout-form"
           class="mt-6 mb-0 space-y-4 rounded-xl p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
@@ -29,14 +29,14 @@
               <label for="nombre" class="sr-only" data-translate="form_name">Nombre</label>
               <input required type="text" name="nombre" id="nombre" value="{{ old('nombre') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
-                placeholder="Nombre" data-translate-placeholder="placeholder_name" />
+                placeholder="Nombre" data-translate-placeholder="placeholder_name" autocomplete="given-name" />
             </div>
 
             <div>
               <label for="apellido" class="sr-only" data-translate="placeholder_surname">Apellido</label>
               <input required type="text" name="apellido" id="apellido" value="{{ old('apellido') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
-                placeholder="Apellido" data-translate-placeholder="placeholder_surname" />
+                placeholder="Apellido" data-translate-placeholder="placeholder_surname" autocomplete="family-name" />
             </div>
           </div>
           <div>
@@ -44,7 +44,7 @@
             <div class="relative">
               <input required type="email" name="email" id="email" value="{{ old('email') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Correo Electrónico" data-translate-placeholder="placeholder_email" />
+                placeholder="Correo Electrónico" data-translate-placeholder="placeholder_email" autocomplete="email" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200"
                   viewBox="0 0 20 20" fill="currentColor">
@@ -60,7 +60,7 @@
             <div class="relative">
               <input required type="tel" name="telefono" id="telefono" value="{{ old('telefono') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Teléfono (ej. 987654321)" data-translate-placeholder="placeholder_phone" />
+                placeholder="Teléfono (ej. 987654321)" data-translate-placeholder="placeholder_phone" autocomplete="tel" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-400 dark:text-gray-200"
                   viewBox="0 0 24 24">
@@ -77,7 +77,7 @@
             <div class="relative">
               <input required type="text" name="direccion" id="direccion" value="{{ old('direccion') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Dirección (Calle, Av., Nro, Dpto.)" data-translate-placeholder="placeholder_address" />
+                placeholder="Dirección (Calle, Av., Nro, Dpto.)" data-translate-placeholder="placeholder_address" autocomplete="street-address" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200"
                   viewBox="0 0 20 20" fill="currentColor">
@@ -222,21 +222,21 @@
               <input type="text" id="tarjeta_num" name="tarjeta_num" value="{{ old('tarjeta_num') }}"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Número de Tarjeta (xxxx xxxx xxxx xxxx)"
-                data-translate-placeholder="placeholder_card_number" />
+                data-translate-placeholder="placeholder_card_number" autocomplete="cc-number" />
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label for="tarjeta_fecha" class="sr-only" data-translate="placeholder_card_date">Fecha (MM/AA)</label>
                 <input type="text" id="tarjeta_fecha" name="tarjeta_fecha" value="{{ old('tarjeta_fecha') }}"
                   class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
-                  placeholder="MM/AA" data-translate-placeholder="placeholder_card_date" />
+                  placeholder="MM/AA" data-translate-placeholder="placeholder_card_date" autocomplete="cc-exp" />
               </div>
               <div>
                 <label for="tarjeta_cvc" class="sr-only" data-translate="placeholder_cvc">CVC</label>
                 <input type="text" id="tarjeta_cvc" name="tarjeta_cvc" value="{{ old('tarjeta_cvc') }}"
                   maxlength="3"
                   class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
-                  placeholder="CVC" data-translate-placeholder="placeholder_cvc" />
+                  placeholder="CVC" data-translate-placeholder="placeholder_cvc" autocomplete="cc-csc" />
               </div>
             </div>
             <p class="text-xs text-gray-500 dark:text-gray-400 text-center flex items-center justify-center gap-1 mt-2">

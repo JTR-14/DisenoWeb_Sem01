@@ -1,22 +1,24 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
 
   <main class="max-w-2xl mx-auto text-start p-4 sm:p-6 lg:p-8 leading-relaxed">
-    <h1 class="font-bold text-2xl mt-4 text-gray-900 dark:text-white text-center" data-translate="contact_title">
+    <h1 class="font-bold text-2xl mt-4 text-gray-900 dark:text-white text-center">
       Información de Contacto</h1>
     <div
       class="p-4 border-2 border-gray-900 dark:border-gray-700 rounded-lg mt-4 md:p-8 lg:px-12 text-gray-700 dark:text-gray-300">
-      <span class="text-gray-700 dark:text-gray-300" data-translate="contact_email">Correo electrónico:</span>
+      <span class="text-gray-700 dark:text-gray-300">Correo electrónico:</span>
       <a class="font-semibold hover:underline text-gray-900 dark:text-white"
         href="mailto:djtoledor@unitru.edu.pe">djtoledor@unitru.edu.pe</a>
       <br>
-      <span class="text-gray-700 dark:text-gray-300" data-translate="contact_phone">Número Telefónico:</span>
+      <span class="text-gray-700 dark:text-gray-300">Número Telefónico:</span>
       <a class="font-semibold hover:underline text-gray-900 dark:text-white" href="tel:+51973392986">973 392 986</a>
       <br>
 
-      <label class="font-semibold" data-translate="contact_social">Redes Sociales:</label>
+      <label class="font-semibold">Redes Sociales:</label>
       <div class="flex items-center gap-4 mt-2">
         <a class="text-gray-900 dark:text-white transition hover:text-gray-900/75 dark:hover:text-white/75"
-          href="https://api.whatsapp.com/send?phone=51973392986&text=Quiero%20realizar%20la%20siguiente%20consulta"
+          href="#"
           target="_blank">
           <span class="sr-only">Whatsapp</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" class="bi bi-whatsapp"
@@ -41,7 +43,7 @@
       </div>
       <div class="flex items-center gap-4 mt-2">
         <a class="text-gray-900 dark:text-white transition hover:text-gray-900/75 dark:hover:text-white/75"
-          href="httpsIA.HREF" target="_blank">
+          href="#" target="_blank">
           <span class="sr-only">Instagram</span>
           <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd"
@@ -54,4 +56,4 @@
     </div>
   </main>
 
-</x-layout>
+@endsection

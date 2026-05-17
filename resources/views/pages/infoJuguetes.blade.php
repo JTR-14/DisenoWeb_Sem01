@@ -1,11 +1,13 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
 
   <main>
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-center text-gray-900 dark:text-white sm:text-4xl" data-translate="juguetes">
+      <h1 class="text-3xl font-bold text-center text-gray-900 dark:text-white sm:text-4xl">
         Nuestros Juguetes</h1>
       <div class="mt-9 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 place-items-center">
-        <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify p-4" data-translate="ij1">
+        <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify p-4">
           En Novedades "MisJhon", creemos que el juego es una parte fundamental del crecimiento y la exploración.
           Nuestra sección de juguetes no es un simple catálogo, sino una cuidadosa selección de compañeros para la
           aventura, la creatividad y el aprendizaje. Elegimos cada juguete pensando en su calidad, seguridad y la
@@ -17,7 +19,7 @@
           alt="Novedades MisJhon">
         <img class="rounded-xl w-96 object-cover" src="{{ asset('imagenes/i__juguetes/JUGUETES') }} PRINCIPAL.jpg"
           alt="Colección principal de juguetes">
-        <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify" data-translate="ij2">
+        <p class="mt-4 text-gray-700 dark:text-gray-300 text-justify">
           Nuestros juguetes están hechos para durar y para acompañar a los niños en sus descubrimientos. Nos aseguramos
           de que cada uno cumpla con los más altos estándares de seguridad y que sea ideal para las diferentes etapas de
           la infancia. Por eso, nos enorgullece ofrecer artículos que no solo entretienen, sino que también contribuyen
@@ -29,4 +31,4 @@
     </div>
   </main>
 
-</x-layout>
+@endsection

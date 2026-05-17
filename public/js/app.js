@@ -1,5 +1,3 @@
-import './bootstrap.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     // === Menú Móvil ===
     const menuButton = document.getElementById("menu-button");
@@ -36,29 +34,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función global para manejar clics desde 'onclick' en el HTML
     window.comprar = function(element) {
+        // Soporte robusto para detectar qué botón disparó la acción
         let target = element;
         if (!target || !(target instanceof HTMLElement)) {
+            // En handlers inline (onclick), window.event.target es el elemento clickeado
             target = (window.event ? (window.event.currentTarget || window.event.target) : null) || document.activeElement;
         }
 
+        // Asegurarnos de que estamos en el elemento botón
         if (target && target.tagName !== 'BUTTON') {
             target = target.closest('button');
         }
 
         if (!target) return;
 
+        // Buscar el contenedor del producto (usualmente un 'li' o un 'div' con clase relative)
         const itemContainer = target.closest('li') || target.closest('.group') || target.closest('.relative');
         
         if (itemContainer) {
+            // 1. Buscar Título (h3 es el estándar, sino buscamos por clases comunes)
             const titleEl = itemContainer.querySelector('h3') || 
                             itemContainer.querySelector('.font-semibold') || 
                             itemContainer.querySelector('h2');
             
+            // 2. Buscar Precio (Buscamos el símbolo de moneda S/)
             const priceEl = Array.from(itemContainer.querySelectorAll('span, p, b'))
                                  .find(el => el.textContent.includes('S/'));
             
             if (titleEl && priceEl) {
                 const title = titleEl.textContent.trim();
+                // Limpiar el texto del precio para obtener solo el número
                 const priceRaw = priceEl.textContent.replace('S/', '').replace(',', '').trim();
                 const price = parseFloat(priceRaw);
 
@@ -69,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        // Failsafe mejorado: Al menos intentamos mostrar algo si el contenedor existe
         const fallbackTitle = itemContainer?.querySelector('h3')?.textContent.trim() || "Producto";
         
         swal({
@@ -128,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartBadge();
         renderCartTotal();
         
+        // Mostrar alerta bonita
         swal({
             title: "¡Excelente elección!",
             text: `Se agregó "${title}" al carrito.\n   Precio: S/ ${price.toFixed(2)}`,
@@ -136,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // Asignar eventos a los botones de productos (para los que no tienen onclick)
     const initCartButtons = () => {
         const productButtons = document.querySelectorAll('ul.grid li button, button.add-to-cart');
         productButtons.forEach(btn => {
@@ -159,22 +167,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchInput) {
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase().trim();
+                // Sincronizar el texto entre ambos inputs si existen
                 searchInputs.forEach(input => {
                     if (input && input !== this) input.value = this.value;
                 });
 
+                // Buscar items de productos (tanto estáticos en ul.grid como cualquier contenedor con clases de grid/lista)
                 const productItems = document.querySelectorAll('ul.grid > li, div.grid > div');
                 
                 productItems.forEach(item => {
+                    // Evitamos ocultar elementos que no parecen ser productos (ej: no tienen título)
                     const titleEl = item.querySelector('h3') || item.querySelector('.font-semibold') || item.querySelector('h2');
                     const priceEl = Array.from(item.querySelectorAll('span, p, b')).find(el => el.textContent.includes('S/'));
                     
+                    // Si el item tiene título y precio, lo tratamos como producto para filtrar
                     if (titleEl && priceEl) {
                         const title = titleEl.textContent.toLowerCase();
                         if (title.includes(searchTerm)) {
-                            item.style.display = '';
+                            item.style.display = ''; // Mostrar
                         } else {
-                            item.style.display = 'none';
+                            item.style.display = 'none'; // Ocultar
                         }
                     }
                 });

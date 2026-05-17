@@ -1,10 +1,12 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
 
   <main>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <header class="text-center">
         <div class="flex justify-center gap-6 text-gray-900 dark:text-white">
-          <h1 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl" data-translate="titulo_peluches">
+          <h1 class="text-xl font-bold text-gray-900 dark:text-white sm:text-3xl">
             Colección de Peluches</h1>
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 14 14" aria-hidden="true">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -12,7 +14,7 @@
               stroke-width="1" />
           </svg>
         </div>
-        <p class="mx-auto text-sm mt-4 max-w-md text-gray-500 dark:text-gray-400" data-translate="descripcion_peluches">
+        <p class="mx-auto text-sm mt-4 max-w-md text-gray-500 dark:text-gray-400">
           "Encuentre el peluche perfecto para regalar o para consentir a alguien especial. Nuestra colección incluye una
           variedad de adorables peluches que seguramente traerán sonrisas y alegría a cualquier ocasión."
         </p>
@@ -22,7 +24,7 @@
 
         @foreach($productos as $producto)
           <li class="group block overflow-hidden rounded-t-2xl">
-            <img src="{{ asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}" loading="lazy"
+            <img src="{{ str_starts_with($producto->imagen, 'imagenes/') ? asset($producto->imagen) : asset('storage/' . $producto->imagen) }}" alt="{{ $producto->titulo }}" loading="lazy"
               class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px]">
 
             <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5">
@@ -45,142 +47,17 @@
           </li>
         @endforeach
 
-        <li class="group block overflow-hidden rounded-t-2xl shadow-lg">
-          <img src="{{ asset('imagenes/i__peluches/P1.png') }}" alt="Osito con corazón Te quiero" loading="lazy"
-            class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p1">
-              Osito con corazón "Te quiero"
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  27.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
 
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__peluches/P2.png') }}" alt="Pinguino antialergico con gorro y mochila" loading="lazy"
-            class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
 
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p2">
-              Pinguino antialergico con gorro y mochila
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  22.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
+        
 
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__peluches/P3.png') }}" alt="Osito musical con corazon Love You" loading="lazy"
-            class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
+        
 
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p3">
-              Osito musical con corazon "Love You"
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  23.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
+        
+        
 
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__peluches/P4.png') }}" alt="Osito con corbatin celeste" loading="lazy"
-            class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
-
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p4">
-              Osito con corbatin celeste
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  23.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__peluches/P5.png') }}" alt="Peluche de Lopso dormido" loading="lazy"
-            class="rounded-t-3xl h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
-
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-3xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p5">
-              Peluche de Lopso dormido
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  27.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
-
-        <li class="group block overflow-hidden rounded-t-2xl">
-          <img src="{{ asset('imagenes/i__peluches/P6.png') }}" alt="Erizo peluche antialergico" loading="lazy"
-            class="h-[250px] w-full object-cover transition duration-500 group-hover:scale-105 md:h-[350px] ">
-
-          <div class="relative bg-gray-100 dark:bg-gray-800 pt-3 rounded-b-2xl px-3 pb-5 ">
-            <h3
-              class="text-xs font-semibold text-center text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-              data-translate="p6">
-              Erizo peluche antialergico
-            </h3>
-            <div class="flex flex-col gap-x-2 justify-around items-center mt-3 lg:flex-row flex-col gap-y-3">
-              <p class="text-xl">
-                <span class="tracking-wider text-gray-900 dark:text-white font-semibold font-mono font-semibold ">S/
-                  26.00</span>
-              </p>
-              <button
-                class="w-30 rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-600"
-                data-translate="btn_add_cart">
-                Añadir al carrito </button>
-            </div>
-          </div>
-        </li>
+        
 
 
 
@@ -188,4 +65,4 @@
     </div>
   </main>
 
-</x-layout>
+@endsection

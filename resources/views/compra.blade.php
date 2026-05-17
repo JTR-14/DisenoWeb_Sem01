@@ -1,9 +1,11 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
   <main class="bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
         <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
-          data-translate="form_purchase_title">
+         >
           Formulario de Compra por Delivery
         </h1>
 
@@ -11,7 +13,7 @@
           class="mt-6 mb-0 space-y-4 rounded-xl p-4 shadow-xl sm:p-6 lg:p-8 bg-white dark:bg-gray-800">
           @csrf
           <p class="text-center text-lg font-medium text-gray-900 dark:text-white"
-            data-translate="form_purchase_subtitle">Completa tus datos de envío</p>
+           >Completa tus datos de envío</p>
 
           @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -26,25 +28,25 @@
 
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label for="nombre" class="sr-only" data-translate="form_name">Nombre</label>
+              <label for="nombre" class="sr-only">Nombre</label>
               <input required type="text" name="nombre" id="nombre" value="{{ old('nombre') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
-                placeholder="Nombre" data-translate-placeholder="placeholder_name" autocomplete="given-name" />
+                placeholder="Nombre" autocomplete="given-name" />
             </div>
 
             <div>
-              <label for="apellido" class="sr-only" data-translate="placeholder_surname">Apellido</label>
+              <label for="apellido" class="sr-only">Apellido</label>
               <input required type="text" name="apellido" id="apellido" value="{{ old('apellido') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 text-sm shadow-sm"
-                placeholder="Apellido" data-translate-placeholder="placeholder_surname" autocomplete="family-name" />
+                placeholder="Apellido" autocomplete="family-name" />
             </div>
           </div>
           <div>
-            <label for="email" class="sr-only" data-translate="form_email">Email</label>
+            <label for="email" class="sr-only">Email</label>
             <div class="relative">
               <input required type="email" name="email" id="email" value="{{ old('email') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Correo Electrónico" data-translate-placeholder="placeholder_email" autocomplete="email" />
+                placeholder="Correo Electrónico" autocomplete="email" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200"
                   viewBox="0 0 20 20" fill="currentColor">
@@ -56,11 +58,11 @@
           </div>
 
           <div>
-            <label for="telefono" class="sr-only" data-translate="form_phone">Teléfono</label>
+            <label for="telefono" class="sr-only">Teléfono</label>
             <div class="relative">
               <input required type="tel" name="telefono" id="telefono" value="{{ old('telefono') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Teléfono (ej. 987654321)" data-translate-placeholder="placeholder_phone" autocomplete="tel" />
+                placeholder="Teléfono (ej. 987654321)" autocomplete="tel" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-400 dark:text-gray-200"
                   viewBox="0 0 24 24">
@@ -73,11 +75,11 @@
           </div>
 
           <div>
-            <label for="direccion" class="sr-only" data-translate="form_address">Dirección</label>
+            <label for="direccion" class="sr-only">Dirección</label>
             <div class="relative">
               <input required type="text" name="direccion" id="direccion" value="{{ old('direccion') }}"
                 class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white dark:placeholder-gray-200 placeholder-gray-500 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Dirección (Calle, Av., Nro, Dpto.)" data-translate-placeholder="placeholder_address" autocomplete="street-address" />
+                placeholder="Dirección (Calle, Av., Nro, Dpto.)" autocomplete="street-address" />
               <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-gray-500 dark:text-gray-200"
                   viewBox="0 0 20 20" fill="currentColor">
@@ -88,10 +90,10 @@
             </div>
           </div>
           <div>
-            <label for="region" class="sr-only" data-translate="select_district">Distritos de Trujillo</label>
+            <label for="region" class="sr-only">Distritos de Trujillo</label>
             <select name="region" id="region" required
               class="border-gray-200 bg-white text-gray-900 w-full rounded-lg dark:bg-gray-700 dark:text-white p-4 text-sm shadow-sm ">
-              <option value="" disabled selected data-translate="select_district">Seleccione Distrito</option>
+              <option value="" disabled selected>Seleccione Distrito</option>
               <option value="trujillo" {{ old('region') == 'trujillo' ? 'selected' : '' }}>Trujillo</option>
               <option value="el_porvenir" {{ old('region') == 'el_porvenir' ? 'selected' : '' }}>El Porvenir</option>
               <option value="florencia_de_mora" {{ old('region') == 'florencia_de_mora' ? 'selected' : '' }}>Florencia de
@@ -109,13 +111,13 @@
           </div>
 
           <div>
-            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2" data-translate="order_summary">Resumen
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Resumen
               del Pedido</h3>
             <div id="cart-items-list" class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4">
               <!-- Cart items injected here -->
             </div>
             <div class="flex justify-between items-center text-lg font-bold text-gray-900 dark:text-white mt-2">
-              <span data-translate="total_amount">Total a Pagar:</span>
+              <span>Total a Pagar:</span>
               <span>S/ <span id="cart-total-amount">0.00</span></span>
             </div>
             <input type="hidden" name="total_pago" id="total_pago_input" value="0">
@@ -123,7 +125,7 @@
 
           <div>
             <fieldset>
-              <legend class="text-lg font-medium text-gray-900 dark:text-white mb-2 " data-translate="payment_method">
+              <legend class="text-lg font-medium text-gray-900 dark:text-white mb-2 ">
                 Método de Pago</legend>
               <div class="space-y-4">
                 <div
@@ -133,7 +135,7 @@
                     class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300" {{ old('metodo_pago') == 'tarjeta' ? 'checked' : '' }}>
                   <label for="pago_tarjeta"
                     class="ml-3 flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer w-full">
-                    <span data-translate="payment_card">Tarjeta de Crédito/Débito</span>
+                    <span>Tarjeta de Crédito/Débito</span>
                     <div class="flex items-center gap-1.5 ml-auto">
                       <!-- Visa SVG -->
                       <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +183,7 @@
                     class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300" {{ old('metodo_pago') == 'yape' ? 'checked' : '' }}>
                   <label for="pago_yape"
                     class="ml-3 flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer w-full">
-                    <span data-translate="payment_yape_title">Pago con Yape</span>
+                    <span>Pago con Yape</span>
                     <img src="{{ asset('imagenes/i__principal/yape_logo.svg') }}" alt="Yape"
                       class="ml-auto h-6 object-contain rounded-sm"
                       onerror="this.onerror=null; this.style.display='none'">
@@ -195,7 +197,7 @@
                     class="h-4 w-4 text-pink-600 focus:ring-pink-500 border-gray-300" {{ old('metodo_pago') == 'plin' ? 'checked' : '' }}>
                   <label for="pago_plin"
                     class="ml-3 flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 cursor-pointer w-full">
-                    <span data-translate="payment_plin_title">Pago con Plin</span>
+                    <span>Pago con Plin</span>
                     <img src="{{ asset('imagenes/i__principal/plin_logo.svg') }}" alt="Plin"
                       class="ml-auto h-6 object-contain rounded-sm"
                       onerror="this.onerror=null; this.style.display='none'">
@@ -208,7 +210,7 @@
           <div id="info_tarjeta"
             class="hidden space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600">
             <h3 class="text-md font-semibold text-gray-900 dark:text-white flex items-center gap-2"
-              data-translate="card_data">
+             >
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -217,26 +219,26 @@
               Datos de la Tarjeta Segura
             </h3>
             <div>
-              <label for="tarjeta_num" class="sr-only" data-translate="placeholder_card_number">Número de
+              <label for="tarjeta_num" class="sr-only">Número de
                 Tarjeta</label>
               <input type="text" id="tarjeta_num" name="tarjeta_num" value="{{ old('tarjeta_num') }}"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Número de Tarjeta (xxxx xxxx xxxx xxxx)"
-                data-translate-placeholder="placeholder_card_number" autocomplete="cc-number" />
+                autocomplete="cc-number" />
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <label for="tarjeta_fecha" class="sr-only" data-translate="placeholder_card_date">Fecha (MM/AA)</label>
+                <label for="tarjeta_fecha" class="sr-only">Fecha (MM/AA)</label>
                 <input type="text" id="tarjeta_fecha" name="tarjeta_fecha" value="{{ old('tarjeta_fecha') }}"
                   class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
-                  placeholder="MM/AA" data-translate-placeholder="placeholder_card_date" autocomplete="cc-exp" />
+                  placeholder="MM/AA" autocomplete="cc-exp" />
               </div>
               <div>
-                <label for="tarjeta_cvc" class="sr-only" data-translate="placeholder_cvc">CVC</label>
+                <label for="tarjeta_cvc" class="sr-only">CVC</label>
                 <input type="text" id="tarjeta_cvc" name="tarjeta_cvc" value="{{ old('tarjeta_cvc') }}"
                   maxlength="3"
                   class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
-                  placeholder="CVC" data-translate-placeholder="placeholder_cvc" autocomplete="cc-csc" />
+                  placeholder="CVC" autocomplete="cc-csc" />
               </div>
             </div>
             <p class="text-xs text-gray-500 dark:text-gray-400 text-center flex items-center justify-center gap-1 mt-2">
@@ -253,32 +255,32 @@
           <!-- Yape Checkout Section -->
           <div id="info_yape"
             class="hidden space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
-            <h3 class="text-md font-semibold text-gray-900 dark:text-white" data-translate="yape_step_1">1. Escanea el QR de Yape para Pagar</h3>
+            <h3 class="text-md font-semibold text-gray-900 dark:text-white">1. Escanea el QR de Yape para Pagar</h3>
             <div class="bg-white p-2 rounded-xl inline-block shadow-sm">
               <img src="{{ asset('imagenes/i__principal/QR-yape.png') }}" alt="Código QR Yape"
                 class="mx-auto h-[180px] w-auto border-4 border-white rounded-lg" />
             </div>
-            <p class="text-sm font-medium text-pink-600 dark:text-pink-400 mt-2"><span data-translate="yape_amount">Monto a Yapear: S/ </span><span
+            <p class="text-sm font-medium text-pink-600 dark:text-pink-400 mt-2"><span>Monto a Yapear: S/ </span><span
                 class="yape-total font-bold">0.00</span></p>
 
             <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 text-left">
-              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2" data-translate="verify_payment">2. Verifica tu pago</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span data-translate="yape_op_desc">Introduce el Número de Operación de tu Yape.</span></p>
+              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2">2. Verifica tu pago</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span>Introduce el Número de Operación de tu Yape.</span></p>
               <input type="text" id="numero_operacion_yape" name="numero_operacion_yape"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Ej. 12345678" />
             </div>
             <!-- Optional QR reader -->
             <details class="text-left mt-4">
-                <summary class="text-xs text-purple-600 dark:text-purple-400 cursor-pointer font-medium hover:underline"><span data-translate="qr_prompt">¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
+                <summary class="text-xs text-purple-600 dark:text-purple-400 cursor-pointer font-medium hover:underline"><span>¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
                 <div class="mt-2">
                     <div id="qr-reader-yape" class="mx-auto w-full max-w-sm rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white" style="display:none;"></div>
                     <button type="button" id="btn-scan-qr-yape" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg text-sm w-full transition-colors flex justify-center items-center gap-2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span data-translate="btn_scan_yape">Escanear Comprobante Yape</span>
+                        <span>Escanear Comprobante Yape</span>
                     </button>
                     <div id="qr-result-yape" class="mt-4 hidden p-3 bg-green-100 text-green-800 rounded-lg text-sm font-medium border border-green-200">
-                    <span data-translate="qr_detected">¡Código detectado!</span><br><span id="qr-scanned-text-yape" class="font-bold break-words"></span>
+                    <span>¡Código detectado!</span><br><span id="qr-scanned-text-yape" class="font-bold break-words"></span>
                     </div>
                 </div>
             </details>
@@ -287,32 +289,32 @@
           <!-- Plin Checkout Section -->
           <div id="info_plin"
             class="hidden space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border border-gray-200 dark:border-gray-600 text-center">
-            <h3 class="text-md font-semibold text-gray-900 dark:text-white" data-translate="plin_step_1">1. Escanea el QR de Plin para Pagar</h3>
+            <h3 class="text-md font-semibold text-gray-900 dark:text-white">1. Escanea el QR de Plin para Pagar</h3>
             <div class="bg-white p-2 rounded-xl inline-block shadow-sm">
               <img src="{{ asset('imagenes/i__principal/QR-plin.png') }}" alt="Código QR Plin"
                 class="mx-auto h-[180px] w-auto border-4 border-white rounded-lg" />
             </div>
-            <p class="text-sm font-medium text-blue-600 dark:text-blue-400 mt-2"><span data-translate="plin_amount">Monto a Plinear: S/ </span><span
+            <p class="text-sm font-medium text-blue-600 dark:text-blue-400 mt-2"><span>Monto a Plinear: S/ </span><span
                 class="yape-total font-bold">0.00</span></p>
 
             <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 text-left">
-              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2" data-translate="verify_payment">2. Verifica tu pago</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span data-translate="plin_op_desc">Introduce el Número de Operación de tu Plin.</span></p>
+              <h3 class="text-md font-semibold text-gray-900 dark:text-white mb-2">2. Verifica tu pago</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-300 mb-3"><span>Introduce el Número de Operación de tu Plin.</span></p>
               <input type="text" id="numero_operacion_plin" name="numero_operacion_plin"
                 class="text-gray-900 border-gray-200 bg-white w-full rounded-lg dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 placeholder-gray-500 p-4 text-sm shadow-sm"
                 placeholder="Ej. 12345678" />
             </div>
             <!-- Optional QR reader -->
             <details class="text-left mt-4">
-                <summary class="text-xs text-blue-600 dark:text-blue-400 cursor-pointer font-medium hover:underline"><span data-translate="qr_prompt">¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
+                <summary class="text-xs text-blue-600 dark:text-blue-400 cursor-pointer font-medium hover:underline"><span>¿O prefieres usar tu cámara y escanear el comprobante?</span></summary>
                 <div class="mt-2">
                     <div id="qr-reader-plin" class="mx-auto w-full max-w-sm rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-white" style="display:none;"></div>
                     <button type="button" id="btn-scan-qr-plin" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-sm w-full transition-colors flex justify-center items-center gap-2 mt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span data-translate="btn_scan_plin">Escanear Comprobante Plin</span>
+                        <span>Escanear Comprobante Plin</span>
                     </button>
                     <div id="qr-result-plin" class="mt-4 hidden p-3 bg-green-100 text-green-800 rounded-lg text-sm font-medium border border-green-200">
-                    <span data-translate="qr_detected">¡Código detectado!</span><br><span id="qr-scanned-text-plin" class="font-bold break-words"></span>
+                    <span>¡Código detectado!</span><br><span id="qr-scanned-text-plin" class="font-bold break-words"></span>
                     </div>
                 </div>
             </details>
@@ -320,7 +322,7 @@
 
           <button type="submit" id="btn-submit-compra"
             class="mt-6 w-full bg-pink-600 rounded-xl px-5 p-4 hover:bg-pink-700 font-bold text-white shadow-lg shadow-pink-500/30 transition-all flex justify-center items-center gap-2"
-            data-translate="btn_purchase">
+           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
                 d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
@@ -570,4 +572,4 @@
     });
   </script>
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-</x-layout>
+@endsection

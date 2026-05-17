@@ -5,46 +5,21 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompraController;
 use App\Http\Controllers\ProductoController;
 use App\Models\Producto; 
+use App\Http\Controllers\PageController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/nosotros', [PageController::class, 'nosotros'])->name('nosotros');
+Route::get('/arreglos', [PageController::class, 'arreglos'])->name('arreglos');
+Route::get('/juguetes', [PageController::class, 'juguetes'])->name('juguetes');
+Route::get('/peluches', [PageController::class, 'peluches'])->name('peluches');
+Route::get('/ropa-bebes', [PageController::class, 'ropaBebes'])->name('ropaBebes');
+Route::get('/politica-privacidad', [PageController::class, 'politicaPrivacidad'])->name('politicaPrivacidad');
+Route::get('/contacto', [PageController::class, 'contacto'])->name('contacto');
 
-
-Route::get('/nosotros', function () {
-    return view('pages.nosotros'); })->name('nosotros');
-Route::get('/arreglos', function () {
-    $productos = Producto::where('categoria', 'arreglos')->get();
-    return view('pages.arreglos', compact('productos'));
-})->name('arreglos');
-
-Route::get('/juguetes', function () {
-    $productos = Producto::where('categoria', 'juguetes')->get();
-    return view('pages.juguetes', compact('productos'));
-})->name('juguetes');
-
-Route::get('/peluches', function () {
-    $productos = Producto::where('categoria', 'peluches')->get();
-    return view('pages.peluches', compact('productos'));
-})->name('peluches');
-
-Route::get('/ropa-bebes', function () {
-    $productos = Producto::where('categoria', 'ropa_bebe')->get();
-    return view('pages.ropaBebes', compact('productos'));
-})->name('ropaBebes');
-Route::get('/politica-privacidad', function () {
-    return view('pages.politicaPrivacidad'); })->name('politicaPrivacidad');
-Route::get('/contacto', function () {
-    return view('pages.direccionContacto'); })->name('contacto');
-
-Route::get('/info-arreglos', function () {
-    return view('pages.infoArreglos'); })->name('infoArreglos');
-Route::get('/info-juguetes', function () {
-    return view('pages.infoJuguetes'); })->name('infoJuguetes');
-Route::get('/info-peluches', function () {
-    return view('pages.infoPeluches'); })->name('infoPeluches');
-Route::get('/info-ropa-bebe', function () {
-    return view('pages.infoRopaBebe'); })->name('infoRopaBebe');
+Route::get('/info-arreglos', [PageController::class, 'infoArreglos'])->name('infoArreglos');
+Route::get('/info-juguetes', [PageController::class, 'infoJuguetes'])->name('infoJuguetes');
+Route::get('/info-peluches', [PageController::class, 'infoPeluches'])->name('infoPeluches');
+Route::get('/info-ropa-bebe', [PageController::class, 'infoRopaBebe'])->name('infoRopaBebe');
 
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -57,4 +32,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/compra', [CompraController::class, 'show'])->name('compra');
 Route::post('/compra', [CompraController::class, 'store']);
 
-Route::resource('productos', ProductoController::class);
+Route::resource('productos', ProductoController::class)->middleware(\App\Http\Middleware\IsAdmin::class);

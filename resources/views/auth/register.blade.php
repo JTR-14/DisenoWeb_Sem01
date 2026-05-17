@@ -1,9 +1,11 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
   <main class="bg-gray-50 dark:bg-gray-900">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-lg">
         <h1 class="text-center text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl"
-          data-translate="form_register_title">
+         >
           Crear una cuenta
         </h1>
 
@@ -12,7 +14,7 @@
           @csrf
 
           <p class="text-center text-lg font-medium text-gray-900 dark:text-white"
-            data-translate="form_register_subtitle">
+           >
             Ingresa tus datos personales
           </p>
 
@@ -28,7 +30,7 @@
           @endif
 
           <div>
-            <label for="name" class="sr-only" data-translate="form_name">Nombre Completo</label>
+            <label for="name" class="sr-only">Nombre Completo</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -37,12 +39,12 @@
               </svg>
               <input type="text" required name="name" id="name" value="{{ old('name') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Nombre completo" data-translate-placeholder="placeholder_fullname" autocomplete="name">
+                placeholder="Nombre completo" autocomplete="name">
             </div>
           </div>
 
           <div>
-            <label for="email" class="sr-only" data-translate="form_email">Email</label>
+            <label for="email" class="sr-only">Email</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -51,12 +53,12 @@
               </svg>
               <input type="email" required name="email" id="email" value="{{ old('email') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Correo electrónico" data-translate-placeholder="placeholder_email" autocomplete="email">
+                placeholder="Correo electrónico" autocomplete="email">
             </div>
           </div>
 
           <div>
-            <label for="telefono" class="sr-only" data-translate="form_phone">Teléfono</label>
+            <label for="telefono" class="sr-only">Teléfono</label>
             <div class="relative flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 size-5 text-gray-500 dark:text-gray-200"
                 viewBox="0 0 24 24">
@@ -65,12 +67,12 @@
               </svg>
               <input type="tel" required name="telefono" id="telefono" value="{{ old('telefono') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Número de teléfono" data-translate-placeholder="placeholder_phone_register" autocomplete="tel">
+                placeholder="Número de teléfono" autocomplete="tel">
             </div>
           </div>
 
           <div>
-            <label for="direccion" class="sr-only" data-translate="form_address">Dirección</label>
+            <label for="direccion" class="sr-only">Dirección</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -79,16 +81,16 @@
               </svg>
               <input type="text" required name="direccion" id="direccion" value="{{ old('direccion') }}"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Dirección completa" data-translate-placeholder="placeholder_address_full" autocomplete="street-address">
+                placeholder="Dirección completa" autocomplete="street-address">
             </div>
           </div>
 
           <div>
-            <label class="sr-only" data-translate="select_district">Distrito</label>
+            <label class="sr-only">Distrito</label>
 
             <select name="region" id="region" required
               class="w-full rounded-lg border border-gray-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-4 text-sm shadow-sm ">
-              <option value="" disabled selected data-translate="select_district">Seleccione Distrito</option>
+              <option value="" disabled selected>Seleccione Distrito</option>
               <option value="trujillo" {{ old('region') == 'trujillo' ? 'selected' : '' }}>Trujillo</option>
               <option value="el_porvenir" {{ old('region') == 'el_porvenir' ? 'selected' : '' }}>El Porvenir</option>
               <option value="florencia_de_mora" {{ old('region') == 'florencia_de_mora' ? 'selected' : '' }}>Florencia de
@@ -106,7 +108,7 @@
           </div>
 
           <div>
-            <label for="password" class="sr-only" data-translate="form_password">Contraseña</label>
+            <label for="password" class="sr-only">Contraseña</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -115,14 +117,14 @@
               </svg>
               <input type="password" id="password" name="password" required
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Contraseña" data-translate-placeholder="placeholder_password" autocomplete="new-password">
+                placeholder="Contraseña" autocomplete="new-password">
             </div>
-            <p class="text-red-500 text-sm text-center mt-2" data-translate="pass_length_hint">La contraseña debe tener
+            <p class="text-red-500 text-sm text-center mt-2">La contraseña debe tener
               al menos 8 caracteres</p>
           </div>
 
           <div>
-            <label class="sr-only" data-translate="placeholder_confirm_password">Confirmar Contraseña</label>
+            <label class="sr-only">Confirmar Contraseña</label>
             <div class="relative flex items-center">
               <svg class="absolute left-4 size-5 text-gray-500 dark:text-gray-200" fill="none" stroke="currentColor"
                 stroke-width="2" viewBox="0 0 24 24">
@@ -132,13 +134,13 @@
 
               <input type="password" id="password2" required name="password2"
                 class="w-full rounded-lg border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-700 text-gray-900 dark:text-white pl-12 p-3 text-sm shadow-sm dark:placeholder-gray-200 placeholder-gray-500"
-                placeholder="Confirmar contraseña" data-translate-placeholder="placeholder_confirm_password" autocomplete="new-password">
+                placeholder="Confirmar contraseña" autocomplete="new-password">
             </div>
             <p id="msgPass" class="text-sm mt-1 font-medium text-center"></p>
           </div>
           <button type="submit"
             class="mt-4 w-full bg-pink-500 rounded-lg px-5 p-3 hover:bg-pink-600 active:bg-pink-600 font-medium text-white cursor-pointer shadow-md transition-all"
-            data-translate="btn_create_account">
+           >
             Crear cuenta
           </button>
         </form>
@@ -177,4 +179,4 @@
       window.addEventListener('languageChanged', validarPasswords);
     });
   </script>
-</x-layout>
+@endsection

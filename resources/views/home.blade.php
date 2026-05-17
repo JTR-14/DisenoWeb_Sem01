@@ -1,12 +1,14 @@
-<x-layout>
+@extends('layouts.app')
+
+@section('content')
   <main>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <section class="text-center">
-        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white" data-translate="home_headline">
+        <h1 class="text-xl font-bold text-gray-900 sm:text-3xl dark:text-white">
           Todo lo que buscas, en un solo lugar
         </h1>
 
-        <p class="mx-auto mt-4 max-w-md text-gray-500 dark:text-gray-400" data-translate="home_description">
+        <p class="mx-auto mt-4 max-w-md text-gray-500 dark:text-gray-400">
           "Descubre regalos únicos para cada ocasión. Arreglos de rosas eternas, ropa de bebé, juguetes y peluches de la
           mejor calidad".
         </p>
@@ -20,7 +22,7 @@
             <div class="relative bg-white dark:bg-gray-900 pt-3 transition-colors duration-300">
               <h3
                 class="text-xs font-semibold text-gray-800 dark:text-gray-200 group-hover:underline group-hover:underline-offset-4"
-                data-translate="cat_arreglos">
+               >
                 Arreglos de Rosas Eternas
               </h3>
             </div>
@@ -34,7 +36,7 @@
             <div class="relative bg-white dark:bg-gray-900 pt-3 transition-colors duration-300">
               <h3
                 class="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:underline group-hover:underline-offset-4"
-                data-translate="cat_juguetes">
+               >
                 Juguetes
               </h3>
             </div>
@@ -48,7 +50,7 @@
             <div class="relative bg-white dark:bg-gray-900 pt-3 transition-colors duration-300">
               <h3
                 class="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:underline group-hover:underline-offset-4"
-                data-translate="cat_peluches">
+               >
                 Peluches
               </h3>
             </div>
@@ -62,7 +64,7 @@
             <div class="relative bg-white dark:bg-gray-900 pt-3 transition-colors duration-300">
               <h3
                 class="text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:underline group-hover:underline-offset-4"
-                data-translate="cat_ropa_bebe">
+               >
                 Ropa de Bebé
               </h3>
             </div>
@@ -70,7 +72,7 @@
         </li>
       </ul>
 
-      <h2 class="text-center text-gray-900 dark:text-white font-bold my-4 text-lg" data-translate="home_how_to_find">
+      <h2 class="text-center text-gray-900 dark:text-white font-bold my-4 text-lg">
         ¿Cómo encontrarnos?
       </h2>
 
@@ -83,4 +85,4 @@
       </div>
     </div>
   </main>
-</x-layout>
+@endsection

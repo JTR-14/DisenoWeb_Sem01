@@ -15,7 +15,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <script type="module" src="{{ asset('js/app.js') }}"></script>
 </head>
 
 <body class="relative bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -39,10 +40,10 @@
       <!-- Navigation Section (Hidden on small desktop) -->
       <nav class="hidden xl:block" aria-label="Navegación principal">
         <ul class="flex gap-6 text-[15px] font-semibold text-gray-700 dark:text-gray-200">
-          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
-          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
-          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
-          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}">Arreglos</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}">Juguetes</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}">Peluches</a></li>
+          <li><a class="transition hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}">Ropa de Bebé</a></li>
         </ul>
       </nav>
 
@@ -50,8 +51,8 @@
       <div class="hidden lg:block flex-1 max-w-xs px-2">
         <div class="relative">
           <input type="text" id="product-search-input" placeholder="Buscar..." aria-label="Buscar productos"
-            class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm transition-all" data-translate-placeholder="search_placeholder">
-          <svg class="w-5 h-5 absolute left-3 top-[27px] transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm transition-all">
+          <svg class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </div>
@@ -70,36 +71,6 @@
           </span>
         </button>
 
-        <!-- Language Toggle (Compact) -->
-        <div class="relative">
-          <button id="language-toggle" class="flex items-center p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-sm transition-all" aria-label="Seleccionar idioma" aria-expanded="false" aria-haspopup="true">
-            <img id="current-flag" src="{{ asset('imagenes/banderas/es.svg') }}" alt="Idioma actual" class="w-5 h-5 rounded-sm">
-            <svg class="w-4 h-4 ml-1 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          
-          <div id="language-menu" class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden z-50" role="menu" aria-label="Idiomas disponibles">
-            <button onclick="changeLanguage('es')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-              <img src="{{ asset('imagenes/banderas/es.svg') }}" alt="ES" class="w-5 h-5 rounded-sm">
-              <span class="text-sm font-medium dark:text-white">Español</span>
-            </button>
-            <button onclick="changeLanguage('en')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <img src="{{ asset('imagenes/banderas/en.svg') }}" alt="EN" class="w-5 h-5 rounded-sm">
-                <span class="text-sm font-medium dark:text-white">English</span>
-              </button>
-              <button onclick="changeLanguage('pt')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <img src="{{ asset('imagenes/banderas/pt.svg') }}" alt="PT" class="w-5 h-5 rounded-sm">
-                <span class="text-sm font-medium dark:text-white">Português</span>
-              </button>
-              <button onclick="changeLanguage('fr')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <img src="{{ asset('imagenes/banderas/fr.svg') }}" alt="FR" class="w-5 h-5 rounded-sm">
-                <span class="text-sm font-medium dark:text-white">Français</span>
-              </button>
-              <button onclick="changeLanguage('it')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <img src="{{ asset('imagenes/banderas/it.svg') }}" alt="IT" class="w-5 h-5 rounded-sm">
-                <span class="text-sm font-medium dark:text-white">Italiano</span>
-              </button>
-          </div>
-        </div>
 
         <!-- Icons Group -->
         <div class="flex items-center gap-1">
@@ -110,15 +81,35 @@
           </a>
 
           <!-- Admin -->
+          @if(auth()->check() && auth()->user()->role === 'admin')
           <a href="{{ route('productos.index') }}" class="p-2.5 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors" title="Administración" aria-label="Panel de administración">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" /></svg>
           </a>
+          @endif
         </div>
 
         <!-- Auth Buttons (Hidden in small/mid desktop) -->
         <div class="hidden sm:flex items-center gap-2">
-          <a class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold transition shadow-sm" href="{{ route('login') }}" data-translate="nav_login">Ingresar</a>
-          <a class="hidden xl:block px-5 py-2.5 rounded-full border-2 border-pink-600 text-pink-600 dark:text-pink-400 dark:border-pink-400 hover:bg-pink-50 text-sm font-semibold transition" href="{{ route('register') }}" data-translate="nav_register">Registro</a>
+          @auth
+            <div class="relative group">
+               <button class="flex items-center justify-center w-10 h-10 rounded-full bg-pink-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 font-bold uppercase overflow-hidden border-2 border-transparent hover:border-pink-500 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4"/></svg>
+               </button>
+               <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                   <div class="p-3 border-b border-gray-100 dark:border-gray-700">
+                      <p class="text-sm font-semibold text-gray-900 dark:text-white truncate">{{ auth()->user()->name }}</p>
+                      <p class="text-xs text-gray-500 truncate">{{ auth()->user()->email }}</p>
+                   </div>
+                   <form method="POST" action="{{ route('logout') }}" class="p-2">
+                      @csrf
+                      <button type="submit" class="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors">Cerrar Sesión</button>
+                   </form>
+               </div>
+            </div>
+          @else
+            <a class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold transition shadow-sm" href="{{ route('login') }}">Ingresar</a>
+            <a class="hidden xl:block px-5 py-2.5 rounded-full border-2 border-pink-600 text-pink-600 dark:text-pink-400 dark:border-pink-400 hover:bg-pink-50 text-sm font-semibold transition" href="{{ route('register') }}">Registro</a>
+          @endauth
         </div>
 
         <!-- Mobile Menu Trigger (Hamburger) -->
@@ -147,26 +138,38 @@
 
       <!-- Links de Navegación -->
       <nav aria-label="Navegación móvil"><ul class="flex flex-col p-4 text-md font-medium text-center space-y-2">
-        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}" data-translate="nav_arreglos">Arreglos</a></li>
-        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}" data-translate="nav_juguetes">Juguetes</a></li>
-        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}" data-translate="nav_peluches">Peluches</a></li>
-        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}" data-translate="nav_ropa_bebe">Ropa de Bebé</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('arreglos') }}">Arreglos</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('juguetes') }}">Juguetes</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('peluches') }}">Peluches</a></li>
+        <li><a class="block py-2 hover:text-pink-600 dark:hover:text-pink-400" href="{{ route('ropaBebes') }}">Ropa de Bebé</a></li>
       </ul></nav>
 
 
       <div class="p-4 flex flex-col gap-3">
+         @if(auth()->check() && auth()->user()->role === 'admin')
          <a href="{{ route('productos.index') }}" class="flex items-center justify-center gap-2 py-2 text-purple-600 dark:text-purple-400 font-medium">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"/></svg>
             Panel de Administración
          </a>
-         <a href="{{ route('login') }}" class="block text-center rounded-full bg-pink-600 py-2.5 text-sm font-medium text-white hover:bg-pink-700" data-translate="nav_login">Ingresar</a>
-         <a href="{{ route('register') }}" class="block text-center rounded-full bg-gray-200 dark:bg-gray-700 py-2.5 text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600" data-translate="nav_register">Registro</a>
+         @endif
+         @auth
+            <div class="py-3 border-b border-gray-100 dark:border-gray-800 text-center">
+              <p class="font-semibold text-gray-900 dark:text-white">{{ auth()->user()->name }}</p>
+              <form method="POST" action="{{ route('logout') }}" class="mt-2">
+                 @csrf
+                 <button type="submit" class="w-full rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 py-2 text-sm font-medium hover:bg-red-200 transition-colors">Cerrar Sesión</button>
+              </form>
+            </div>
+         @else
+            <a href="{{ route('login') }}" class="block text-center rounded-full bg-pink-600 py-2.5 text-sm font-medium text-white hover:bg-pink-700">Ingresar</a>
+            <a href="{{ route('register') }}" class="block text-center rounded-full bg-gray-200 dark:bg-gray-700 py-2.5 text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600">Registro</a>
+         @endauth
       </div>
     </div>
   </header>
 
   <div id="main-content">
-  {{ $slot }}
+  @yield('content')
   </div>
 
   <footer
@@ -179,8 +182,7 @@
           class="hidden dark:block" width="105" height="40">
       </div>
 
-      <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300 "
-        data-translate="footer_description">
+      <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300">
         "Encuentra el regalo ideal para cualquier ocasión. Ofrecemos arreglos de rosas eternas, peluches, juguetes y
         ropa de bebé, perfectos para celebrar los momentos más especiales de la vida."
       </p>
@@ -188,22 +190,22 @@
       <nav aria-label="Enlaces del pie de página"><ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('nosotros') }}" data-translate="footer_about">Nosotros</a>
+            href="{{ route('nosotros') }}">Nosotros</a>
         </li>
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('politicaPrivacidad') }}" data-translate="footer_privacy">Política de Privacidad y Términos
+            href="{{ route('politicaPrivacidad') }}">Política de Privacidad y Términos
             de Servicio</a>
         </li>
         <li>
           <a class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 hover:underline"
-            href="{{ route('contacto') }}" data-translate="footer_contact">Información de Contacto</a>
+            href="{{ route('contacto') }}">Información de Contacto</a>
         </li>
       </ul></nav>
 
       <nav aria-label="Redes sociales"><ul class="mt-12 flex justify-center gap-6 md:gap-8">
         <li>
-          <a href="https://api.whatsapp.com/send?phone=51973392986&text=Quiero%20realizar%20la%20siguiente%20consulta"
+          <a href="#"
             target="_blank" rel="noreferrer"
             class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 transition">
             <span class="sr-only">Whatsapp</span>
@@ -215,7 +217,7 @@
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/jhonatan.toledorodriguez/" rel="noreferrer" target="_blank"
+          <a href="#" rel="noreferrer" target="_blank"
             class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 transition">
             <span class="sr-only">Facebook</span>
             <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -226,7 +228,7 @@
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/jhonatan_tolerod/?hl=es" rel="noreferrer" target="_blank"
+          <a href="#" rel="noreferrer" target="_blank"
             class="text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-white/75 transition">
             <span class="sr-only">Instagram</span>
             <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -242,7 +244,7 @@
 
 
 
-  <a href="https://wa.me/51973392986" target="_blank" aria-label="Contactar por WhatsApp"
+  <a href="#" target="_blank" aria-label="Contactar por WhatsApp"
     class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
     <span class="sr-only">Contactar por WhatsApp</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-6 h-6" aria-hidden="true">
